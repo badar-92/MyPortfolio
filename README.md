@@ -225,7 +225,7 @@ cd Portfolio
 - I'm always open to new opportunities, collaborations, and learning experiences. Feel free to reach out!
 
 - 📧 Email: badarbhatt.pk786@gmail.com
-- 💼 LinkedIn: [Badar Ahmad](www.linkedin.com/in/92-badar)
+- 💼 LinkedIn: [Badar Ahmad](https://www.linkedin.com/in/92-badar)
 - 🐱 GitHub: [Badar-92](https://github.com/Badar-92)
 
 ## **👤 Author**
