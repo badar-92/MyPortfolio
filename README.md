@@ -1,5 +1,5 @@
 # MyPortfolio
-Badar Ahmad - Professional Portfolio
+
 👋 Hi, I'm Badar Ahmad - a BScs Student & Software Developer passionate about creating efficient, responsive, and functional applications.
 
 📝 Project Description
