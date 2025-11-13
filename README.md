@@ -72,7 +72,7 @@ Modify CSS files for styling
 Update JavaScript files for functionality
 
 🔗 Live Demo
-Visit my portfolio: https://badar-92.github.io/Portfolio/
+Visit my portfolio: https://badar-92.github.io/MyPortfolio/
 
 👨‍🎓 About Me
 I'm a Computer Science student at University of Lahore, specializing in:
