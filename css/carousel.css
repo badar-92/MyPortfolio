@@ -1,0 +1,152 @@
+/* ===== PHONE CAROUSEL ===== */
+.phone-carousel-section {
+    margin: 6rem 0;
+}
+
+.carousel-title {
+    text-align: center;
+    font-size: 2.4rem;
+    margin-bottom: 3rem;
+    color: var(--text-color);
+}
+
+.phone-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 3rem;
+    margin-top: 4rem;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.phone-mockup {
+    width: 280px;
+    height: 580px;
+    border: 12px solid #222;
+    border-radius: 40px;
+    overflow: hidden;
+    position: relative;
+    background: #000;
+    box-shadow: 0 20px 50px var(--shadow-color);
+    flex-shrink: 0;
+}
+
+.phone-notch {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 180px;
+    height: 25px;
+    background: #222;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    z-index: 10;
+}
+
+.phone-screen {
+    width: 100%;
+    height: 100%;
+    background: #fff;
+    position: relative;
+    overflow: hidden;
+}
+
+.phone-screen img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.phone-screen img.active {
+    opacity: 1;
+}
+
+.nav-btn {
+    width: 60px;
+    height: 60px;
+    background: var(--card-bg);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.4rem;
+    color: var(--primary-color);
+    cursor: pointer;
+    border: 2px solid var(--border-color);
+    transition: var(--transition);
+}
+
+.nav-btn:hover {
+    background: var(--primary-color);
+    color: white;
+    transform: scale(1.1);
+}
+
+.carousel-indicators {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 3rem;
+}
+
+.indicator {
+    width: 12px;
+    height: 12px;
+    background: var(--border-color);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.indicator.active {
+    background: var(--primary-color);
+    transform: scale(1.2);
+}
+
+/* Responsive Carousel */
+@media (max-width: 768px) {
+    .phone-container {
+        gap: 1.5rem;
+    }
+    
+    .phone-mockup {
+        width: 240px;
+        height: 500px;
+        border-width: 10px;
+    }
+    
+    .nav-btn {
+        width: 50px;
+        height: 50px;
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .phone-container {
+        gap: 1rem;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        padding: 1rem;
+        justify-content: flex-start;
+        scroll-snap-type: x mandatory;
+    }
+    
+    .phone-mockup {
+        flex: 0 0 auto;
+        width: 200px;
+        height: 420px;
+        scroll-snap-align: center;
+    }
+    
+    .nav-btn {
+        display: none;
+    }
+}

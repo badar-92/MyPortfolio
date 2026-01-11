@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Snake Game | Badar Ahmad</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="../images/projects/snake-hero.png">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        /* ===== PROJECT DETAIL PAGE ===== */
+        .project-detail {
+            padding-top: 12rem;
+        }
+
+        .project-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .project-hero-img {
+            width: 100%;
+            max-width: 350px;
+            border-radius: var(--border-radius);
+            margin: 1.5rem auto;
+            display: block;
+            box-shadow: 0 10px 20px var(--shadow-color);
+        }
+
+        .project-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .content-section {
+            margin-bottom: 4rem;
+        }
+
+        .content-section h3 {
+            font-size: 2.4rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary-color);
+        }
+
+        .content-section h4 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: var(--text-color);
+        }
+
+        .content-section p {
+            font-size: 1.6rem;
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+
+        .feature-list {
+            list-style: none;
+        }
+
+        .feature-list li {
+            display: flex;
+            align-items: start;
+            gap: 1.2rem;
+            margin-bottom: 1.2rem;
+            font-size: 1.5rem;
+            color: var(--text-muted);
+        }
+
+        .feature-list li i {
+            color: var(--primary-color);
+            margin-top: 0.3rem;
+            min-width: 18px;
+        }
+
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+            margin: 1.5rem 0;
+        }
+
+        .tech-stack span {
+            background: rgba(37, 99, 235, 0.1);
+            color: var(--primary-color);
+            padding: 0.6rem 1.2rem;
+            border-radius: 20px;
+            font-size: 1.3rem;
+            border: 1px solid rgba(37, 99, 235, 0.2);
+            transition: var(--transition);
+        }
+
+        .tech-stack span:hover {
+            background: var(--primary-color);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .project-links-row {
+            display: flex;
+            gap: 1.5rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+
+        /* Feature Cards */
+        .feature-card {
+            background: var(--card-bg);
+            padding: 1.5rem;
+            border-radius: var(--border-radius);
+            border: 1px solid var(--border-color);
+            transition: var(--transition);
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px var(--shadow-color);
+        }
+        
+        .feature-card h4 {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            margin-bottom: 0.8rem;
+            color: var(--primary-color);
+        }
+        
+        .feature-card ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .feature-card li {
+            padding: 0.4rem 0;
+            font-size: 1.3rem;
+            color: var(--text-muted);
+            position: relative;
+            padding-left: 1.2rem;
+        }
+        
+        .feature-card li:before {
+            content: "•";
+            color: var(--primary-color);
+            position: absolute;
+            left: 0;
+        }
+
+        /* Live Demo Card */
+        .demo-card {
+            background: linear-gradient(135deg, #e8f5e9 0%, #f1f8e9 100%);
+            border: 2px solid var(--primary-color);
+            border-radius: var(--border-radius);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .demo-card h4 {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            color: var(--primary-color);
+            margin-bottom: 1.2rem;
+            font-size: 1.6rem;
+        }
+        
+        .demo-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 0.8rem;
+            padding: 0.8rem;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 8px;
+            border-left: 4px solid var(--primary-color);
+        }
+        
+        .demo-label {
+            font-weight: 600;
+            min-width: 100px;
+            color: #2d3748;
+            font-size: 1.4rem;
+        }
+        
+        .demo-value {
+            font-family: 'Courier New', monospace;
+            background: #f8f9fa;
+            padding: 0.4rem 0.8rem;
+            border-radius: 4px;
+            border: 1px solid #dee2e6;
+            color: #212529;
+            font-size: 1.3rem;
+            font-weight: 500;
+            word-break: break-all;
+        }
+
+        /* Code Snippet */
+        .code-snippet {
+            background: #1e1e1e;
+            color: #d4d4d4;
+            border-radius: var(--border-radius);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            font-family: 'Courier New', monospace;
+            font-size: 1.3rem;
+            line-height: 1.6;
+            overflow-x: auto;
+            max-height: 350px;
+            overflow-y: auto;
+        }
+        
+        .code-keyword { color: #569cd6; }
+        .code-string { color: #ce9178; }
+        .code-comment { color: #6a9955; }
+        .code-function { color: #dcdcaa; }
+        .code-number { color: #b5cea8; }
+
+        /* Game Features */
+        .game-features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        /* Controls Section */
+        .controls-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+        
+        .control-item {
+            background: var(--card-bg);
+            padding: 1rem;
+            border-radius: var(--border-radius);
+            border: 1px solid var(--border-color);
+            text-align: center;
+        }
+        
+        .control-key {
+            display: inline-block;
+            background: #2d3748;
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 4px;
+            font-family: monospace;
+            font-size: 1.4rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .control-action {
+            font-size: 1.3rem;
+            color: var(--text-muted);
+        }
+
+        @media (max-width: 768px) {
+            .project-detail {
+                padding-top: 8rem;
+            }
+            
+            .content-section h3 {
+                font-size: 2rem;
+            }
+            
+            .project-links-row {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            
+            .project-links-row .btn {
+                width: 100%;
+                justify-content: center;
+                padding: 0.8rem 1.5rem;
+                font-size: 1.4rem;
+            }
+            
+            .game-features-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .project-hero-img {
+                max-width: 250px;
+                margin: 1rem auto;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .project-hero-img {
+                max-width: 200px;
+            }
+            
+            .project-header h1 {
+                font-size: 2.2rem;
+            }
+            
+            .section-subtitle {
+                font-size: 1.4rem;
+            }
+            
+            .demo-item {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.4rem;
+            }
+            
+            .demo-label {
+                min-width: auto;
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- ===== HEADER ===== -->
+    <header class="header">
+        <div class="container">
+            <nav class="nav">
+                <a href="../index.html" class="logo">Badar<span>Ahmad</span></a>
+                
+                <div class="nav-links" id="navLinks">
+                    <a href="../index.html#home" class="nav-link">Home</a>
+                    <a href="../index.html#projects" class="nav-link active">Projects</a>
+                    <a href="../index.html#contact" class="nav-link">Contact</a>
+                </div>
+                
+                <div class="nav-controls">
+                    <button id="themeToggle" class="theme-toggle">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                    <button id="menuToggle" class="menu-toggle">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- ===== PROJECT DETAIL ===== -->
+    <section class="project-detail" style="padding-top: 12rem;">
+        <div class="container">
+            <div class="project-header" data-aos="fade-up">
+                <h1 class="section-title">Snake <span>Game</span></h1>
+                <p class="section-subtitle">Modern Python Snake Game with Advanced Graphics, Sound Effects, and Multiple Difficulty Levels</p>
+                
+                <img src="../images/projects/snake-hero.png" alt="Snake Game" class="project-hero-img" data-aos="fade-up" data-aos-delay="200">
+            </div>
+            
+            <div class="project-content">
+                <!-- Project Overview -->
+                <div class="content-section" data-aos="fade-up">
+                    <h3>Project Overview</h3>
+                    <p>
+                        A modern recreation of the classic Snake game built with Python's Turtle graphics library 
+                        and Pygame for sound effects. This enhanced version features smooth animations, visual effects, 
+                        multiple difficulty levels, special power-ups, and interactive menus.
+                    </p>
+                    
+                    <div class="demo-card" data-aos="fade-up" data-aos-delay="200">
+                        <h4><i class="fas fa-gamepad"></i> Live Demo Access</h4>
+                        <div class="demo-item">
+                            <span class="demo-label">GitHub:</span>
+                            <span class="demo-value">https://github.com/badar-92/snake-game</span>
+                        </div>
+                        <div class="demo-item">
+                            <span class="demo-label">Online Play:</span>
+                            <span class="demo-value">https://replit.com/@badarbhattpk786/snake-game</span>
+                        </div>
+                        <p style="margin-top: 1rem; font-size: 1.3rem; color: #4a5568; font-weight: 500;">
+                            <i class="fas fa-info-circle"></i> Click the "Run" button on Replit to start playing directly in your browser.
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- Live Links -->
+                <div class="content-section" data-aos="fade-up">
+                    <h3>Project Links</h3>
+                    <div class="project-links-row">
+                        <a href="https://replit.com/@badarbhattpk786/snake-game" target="_blank" class="btn btn-primary">
+                            <i class="fas fa-play-circle"></i> Play Online
+                        </a>
+                        <a href="https://github.com/badar-92/snake-game" target="_blank" class="btn btn-secondary">
+                            <i class="fab fa-github"></i> View Source Code
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- The Challenge -->
+                <div class="content-section" data-aos="fade-up">
+                    <h3>The Challenge</h3>
+                    <p>
+                        Creating an engaging modern version of the classic Snake game that goes beyond basic 
+                        implementation by adding:
+                    </p>
+                    <ul class="feature-list">
+                        <li><i class="fas fa-exclamation-circle"></i> <span>Smooth animations and visual effects for immersive gameplay</span></li>
+                        <li><i class="fas fa-exclamation-circle"></i> <span>Multiple difficulty levels with varying game mechanics</span></li>
+                        <li><i class="fas fa-exclamation-circle"></i> <span>Special power-ups and timed bonuses</span></li>
+                        <li><i class="fas fa-exclamation-circle"></i> <span>Complete menu system with interactive buttons</span></li>
+                        <li><i class="fas fa-exclamation-circle"></i> <span>Sound effects and vibration feedback</span></li>
+                        <li><i class="fas fa-exclamation-circle"></i> <span>Responsive controls with keyboard support</span></li>
+                    </ul>
+                </div>
+                
+                <!-- The Solution -->
+                <div class="content-section" data-aos="fade-up">
+                    <h3>The Solution</h3>
+                    <p>
+                        Developed a feature-rich Snake game using Python's Turtle graphics enhanced with Pygame 
+                        for audio. Implemented an object-oriented approach with modular components for 
+                        maintainability and extensibility:
+                    </p>
+                    <ul class="feature-list">
+                        <li><i class="fas fa-check-circle"></i> <span><strong>Advanced graphics</strong> with smooth animations and visual effects</span></li>
+                        <li><i class="fas fa-check-circle"></i> <span><strong>Three difficulty levels</strong> (Easy, Medium, Hard) with unique challenges</span></li>
+                        <li><i class="fas fa-check-circle"></i> <span><strong>Special food system</strong> with timed bonuses and visual indicators</span></li>
+                        <li><i class="fas fa-check-circle"></i> <span><strong>Complete menu system</strong> with interactive buttons and state management</span></li>
+                        <li><i class="fas fa-check-circle"></i> <span><strong>Sound effects</strong> and system vibration for immersive feedback</span></li>
+                        <li><i class="fas fa-check-circle"></i> <span><strong>High score tracking</strong> across multiple game sessions</span></li>
+                    </ul>
+                </div>
+                
+                <!-- Key Features -->
+                <div class="content-section" data-aos="fade-up">
+                    <h3>Key Features</h3>
+                    
+                    <div class="game-features-grid">
+                        <div class="feature-card">
+                            <h4><i class="fas fa-tachometer-alt"></i> Difficulty Levels</h4>
+                            <ul>
+                                <li><strong>Easy:</strong> Slow pace, no obstacles</li>
+                                <li><strong>Medium:</strong> Normal speed with static hurdles</li>
+                                <li><strong>Hard:</strong> Fast pace with moving hurdles</li>
+                                <li>Progressive challenge increase</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="feature-card">
+                            <h4><i class="fas fa-star"></i> Special Food System</h4>
+                            <ul>
+                                <li>Timed special food spawns</li>
+                                <li>Progress bar with color coding</li>
+                                <li>Bonus points based on quick collection</li>
+                                <li>Blinking visual indicator</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="feature-card">
+                            <h4><i class="fas fa-gamepad"></i> Game Mechanics</h4>
+                            <ul>
+                                <li>Snake body wave animation</li>
+                                <li>Color-changing segments</li>
+                                <li>Boost system for consecutive moves</li>
+                                <li>Reverse direction capability</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="feature-card">
+                            <h4><i class="fas fa-bullseye"></i> Visual Effects</h4>
+                            <ul>
+                                <li>Snake mouth opening animation</li>
+                                <li>Moving eyes and tongue</li>
+                                <li>Food bump effects on snake body</li>
+                                <li>Window shake on game over</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="feature-card">
+                            <h4><i class="fas fa-sliders-h"></i> Menu System</h4>
+                            <ul>
+                                <li>Interactive button system</li>
+                                <li>Pause/Resume functionality</li>
+                                <li>Difficulty selection</li>
+                                <li>Game over screen with replay</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="feature-card">
+                            <h4><i class="fas fa-chart-line"></i> Scoring System</h4>
+                            <ul>
+                                <li>Base score: 10 points per food</li>
+                                <li>Special food: 50+ points</li>
+                                <li>High score tracking (top 3)</li>
+                                <li>Boost multiplier system</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Controls -->
+                <div class="content-section" data-aos="fade-up">
+                    <h3>Game Controls</h3>
+                    <p>
+                        The game supports multiple control schemes for different player preferences:
+                    </p>
+                    
+                    <div class="controls-grid">
+                        <div class="control-item">
+                            <div class="control-key">↑ or W</div>
+                            <div class="control-action">Move Up</div>
+                        </div>
+                        <div class="control-item">
+                            <div class="control-key">↓ or S</div>
+                            <div class="control-action">Move Down</div>
+                        </div>
+                        <div class="control-item">
+                            <div class="control-key">← or A</div>
+                            <div class="control-action">Move Left</div>
+                        </div>
+                        <div class="control-item">
+                            <div class="control-key">→ or D</div>
+                            <div class="control-action">Move Right</div>
+                        </div>
+                        <div class="control-item">
+                            <div class="control-key">SPACE</div>
+                            <div class="control-action">Pause/Resume</div>
+                        </div>
+                    </div>
+                    
+                    <p style="margin-top: 1.5rem; font-style: italic; color: #4a5568; font-size: 1.3rem;">
+                        <i class="fas fa-info-circle"></i> The game features a boost system: pressing the same direction key 
+                        consecutively increases movement speed. Pressing opposite direction reverses the snake!
+                    </p>
+                </div>
+                
+                <!-- Technical Implementation -->
+                <div class="content-section" data-aos="fade-up">
+                    <h3>Technical Implementation</h3>
+                    <p>
+                        Built with Python using Turtle graphics for visualization and Pygame for audio, 
+                        featuring modular architecture and object-oriented design.
+                    </p>
+                    
+                    <div class="tech-stack">
+                        <span>Python 3.8+</span>
+                        <span>Turtle Graphics</span>
+                        <span>Pygame</span>
+                        <span>Math Module</span>
+                        <span>Random Module</span>
+                        <span>Time Module</span>
+                        <span>Platform Module</span>
+                    </div>
+                    
+                    <div style="margin-top: 2rem;">
+                        <h4>Architecture Overview</h4>
+                        <p>Modular game structure with separation of concerns:</p>
+                        <ul class="feature-list">
+                            <li><i class="fas fa-code"></i> <span><strong>Main Game Loop:</strong> Central game state management</span></li>
+                            <li><i class="fas fa-code"></i> <span><strong>Snake Class:</strong> Handles movement, rendering, and collision</span></li>
+                            <li><i class="fas fa-code"></i> <span><strong>Food System:</strong> Manages regular and special food spawns</span></li>
+                            <li><i class="fas fa-code"></i> <span><strong>Menu System:</strong> Interactive UI with button classes</span></li>
+                            <li><i class="fas fa-code"></i> <span><strong>Hurdle System:</strong> Obstacle management per difficulty</span></li>
+                            <li><i class="fas fa-code"></i> <span><strong>Audio System:</strong> Sound effects and vibration feedback</span></li>
+                        </ul>
+                    </div>
+                    
+                    <div style="margin-top: 2rem;">
+                        <h4>Code Structure</h4>
+                        <div class="code-snippet">
+<pre><span class="code-keyword">class</span> <span class="code-function">Button</span>:
+    <span class="code-keyword">def</span> <span class="code-function">__init__</span>(<span class="code-keyword">self</span>, x, y, width, height, text, callback):
+        <span class="code-keyword">self</span>.x = x
+        <span class="code-keyword">self</span>.y = y
+        <span class="code-keyword">self</span>.width = width
+        <span class="code-keyword">self</span>.height = height
+        <span class="code-keyword">self</span>.text = text
+        <span class="code-keyword">self</span>.callback = callback
+        <span class="code-keyword">self</span>.visible = <span class="code-keyword">False</span>
+        
+        <span class="code-comment"># Create interactive button with Turtle graphics</span>
+        <span class="code-keyword">self</span>.text_turtle = turtle.Turtle()
+        <span class="code-keyword">self</span>.click_area = turtle.Turtle()
+        <span class="code-keyword">self</span>.click_area.onclick(<span class="code-keyword">lambda</span> x, y: callback())
+    
+    <span class="code-keyword">def</span> <span class="code-function">show</span>(<span class="code-keyword">self</span>):
+        <span class="code-keyword">self</span>.text_turtle.write(<span class="code-keyword">self</span>.text, align=<span class="code-string">"center"</span>, font=(<span class="code-string">"Arial"</span>, <span class="code-number">16</span>, <span class="code-string">"bold"</span>))</pre>
+                        </div>
+                    </div>
+                    
+                    <div style="margin-top: 2rem;">
+                        <h4>Performance Optimizations</h4>
+                        <ul class="feature-list">
+                            <li><i class="fas fa-bolt"></i> <span><strong>Efficient Rendering:</strong> Turtle stamping for body segments instead of redrawing</span></li>
+                            <li><i class="fas fa-bolt"></i> <span><strong>Frame Rate Control:</strong> Adaptive delay based on difficulty and score</span></li>
+                            <li><i class="fas fa-bolt"></i> <span><strong>Memory Management:</strong> Controlled position tracking with max length</span></li>
+                            <li><i class="fas fa-bolt"></i> <span><strong>Collision Optimization:</strong> Skipped self-collision checks for recent segments</span></li>
+                            <li><i class="fas fa-bolt"></i> <span><strong>Event Handling:</strong> Non-blocking keyboard input with Turtle's listeners</span></li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Project Impact -->
+                <div class="content-section" data-aos="fade-up">
+                    <h3>Project Highlights</h3>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; margin-top: 1.5rem;">
+                        <div class="feature-card" style="text-align: center;">
+                            <div style="font-size: 3rem; color: var(--primary-color); margin-bottom: 1rem;">
+                                <i class="fas fa-layer-group"></i>
+                            </div>
+                            <div style="font-size: 1.4rem; font-weight: 600; color: var(--text-color); margin-bottom: 0.5rem;">
+                                3 Difficulty Levels
+                            </div>
+                            <div style="font-size: 1.3rem; color: var(--text-muted);">
+                                Easy, Medium, Hard with unique mechanics
+                            </div>
+                        </div>
+                        <div class="feature-card" style="text-align: center;">
+                            <div style="font-size: 3rem; color: var(--primary-color); margin-bottom: 1rem;">
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <div style="font-size: 1.4rem; font-weight: 600; color: var(--text-color); margin-bottom: 0.5rem;">
+                                Special Food System
+                            </div>
+                            <div style="font-size: 1.3rem; color: var(--text-muted);">
+                                Timed bonuses with visual progress bar
+                            </div>
+                        </div>
+                        <div class="feature-card" style="text-align: center;">
+                            <div style="font-size: 3rem; color: var(--primary-color); margin-bottom: 1rem;">
+                                <i class="fas fa-volume-up"></i>
+                            </div>
+                            <div style="font-size: 1.4rem; font-weight: 600; color: var(--text-color); margin-bottom: 0.5rem;">
+                                Audio & Vibration
+                            </div>
+                            <div style="font-size: 1.3rem; color: var(--text-muted);">
+                                Immersive feedback system
+                            </div>
+                        </div>
+                        <div class="feature-card" style="text-align: center;">
+                            <div style="font-size: 3rem; color: var(--primary-color); margin-bottom: 1rem;">
+                                <i class="fas fa-mouse-pointer"></i>
+                            </div>
+                            <div style="font-size: 1.4rem; font-weight: 600; color: var(--text-color); margin-bottom: 0.5rem;">
+                                Interactive UI
+                            </div>
+                            <div style="font-size: 1.3rem; color: var(--text-muted);">
+                                Complete menu system with buttons
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <p style="margin-top: 1.5rem; color: var(--text-muted);">
+                        This Snake game demonstrates advanced Python programming skills by transforming a 
+                        simple classic into a feature-rich modern game. It showcases expertise in graphics 
+                        programming, game state management, user interface design, and audio integration.
+                    </p>
+                </div>
+                
+                <!-- Project Links -->
+                <div class="content-section" data-aos="fade-up">
+                    <h3>Project Links</h3>
+                    <div class="project-links-row">
+                        <a href="https://replit.com/@badarbhattpk786/snake-game" target="_blank" class="btn btn-primary">
+                            <i class="fas fa-play-circle"></i> Play Online
+                        </a>
+                        <a href="https://github.com/badar-92/snake-game" target="_blank" class="btn btn-secondary">
+                            <i class="fab fa-github"></i> View Source Code
+                        </a>
+                        <a href="../index.html#projects" class="btn btn-outline">
+                            <i class="fas fa-arrow-left"></i> Back to Portfolio
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <p>&copy; <span id="currentYear"></span> | Badar Ahmad | All Rights Reserved | Snake Game</p>
+                <p>Designed and developed with by Badar Ahmad</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ===== BACK TO TOP ===== -->
+    <a href="#" class="back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+
+    <!-- ===== SCRIPTS ===== -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="../js/script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize AOS
+            if (typeof AOS !== 'undefined') {
+                AOS.init({
+                    duration: 1000,
+                    once: true,
+                    offset: 100
+                });
+            }
+
+            // Set current year in footer
+            const currentYearElement = document.getElementById('currentYear');
+            if (currentYearElement) {
+                currentYearElement.textContent = new Date().getFullYear();
+            }
+        });
+    </script>
+</body>
+</html>

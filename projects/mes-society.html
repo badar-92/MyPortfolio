@@ -1,0 +1,1130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MES Society Portal | Badar Ahmad</title>
+    
+    <!-- Favicon - UPDATED -->
+    <link rel="icon" type="image/x-icon" href="../images/projects/mes-favicon.ico">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        /* ===== PROJECT DETAIL PAGE ===== */
+        .project-detail {
+            padding-top: 12rem;
+        }
+
+        .project-header {
+            text-align: center;
+            margin-bottom: 5rem;
+        }
+
+        /* UPDATED: Resized hero image to match pos-system */
+        .project-hero-img {
+            width: 100%;
+            max-width: 350px; /* Reduced from 800px to 350px */
+            border-radius: var(--border-radius);
+            margin: 1.5rem auto; /* Reduced margin */
+            display: block;
+            box-shadow: 0 10px 20px var(--shadow-color); /* Reduced shadow */
+        }
+
+        .project-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .content-section {
+            margin-bottom: 5rem;
+        }
+
+        .content-section h3 {
+            font-size: 2.8rem;
+            margin-bottom: 2rem;
+            color: var(--primary-color);
+        }
+
+        .content-section h4 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            color: var(--text-color);
+        }
+
+        .content-section p {
+            font-size: 1.6rem;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+        }
+
+        .feature-list {
+            list-style: none;
+        }
+
+        .feature-list li {
+            display: flex;
+            align-items: start;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+            font-size: 1.6rem;
+            color: var(--text-muted);
+        }
+
+        .feature-list li i {
+            color: var(--primary-color);
+            margin-top: 0.3rem;
+            min-width: 20px;
+        }
+
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+
+        .tech-stack span {
+            background: rgba(37, 99, 235, 0.1);
+            color: var(--primary-color);
+            padding: 0.8rem 1.5rem;
+            border-radius: 20px;
+            font-size: 1.4rem;
+            border: 1px solid rgba(37, 99, 235, 0.2);
+            transition: var(--transition);
+        }
+
+        .tech-stack span:hover {
+            background: var(--primary-color);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .project-links-row {
+            display: flex;
+            gap: 2rem;
+            margin-top: 3rem;
+            flex-wrap: wrap;
+        }
+
+        /* Feature Cards */
+        .feature-card {
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            border: 1px solid var(--border-color);
+            transition: var(--transition);
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px var(--shadow-color);
+        }
+        
+        .feature-card h4 {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+        
+        .feature-card ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .feature-card li {
+            padding: 0.5rem 0;
+            font-size: 1.4rem;
+            color: var(--text-muted);
+            position: relative;
+            padding-left: 1.5rem;
+        }
+        
+        .feature-card li:before {
+            content: "•";
+            color: var(--primary-color);
+            position: absolute;
+            left: 0;
+        }
+
+        /* Live Links */
+        .live-links-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+        
+        .live-link {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1.5rem;
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            border: 1px solid var(--border-color);
+            text-decoration: none;
+            color: var(--text-color);
+            transition: var(--transition);
+        }
+        
+        .live-link:hover {
+            background: var(--primary-color);
+            color: white;
+            transform: translateY(-3px);
+        }
+        
+        .live-link i {
+            font-size: 1.8rem;
+        }
+        
+        .live-link span {
+            font-size: 1.4rem;
+            font-weight: 500;
+        }
+
+        /* Impact Cards */
+        .impact-card {
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            border: 1px solid var(--border-color);
+            text-align: center;
+            transition: var(--transition);
+        }
+        
+        .impact-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px var(--shadow-color);
+        }
+        
+        .impact-number {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+        
+        .impact-text {
+            font-size: 1.4rem;
+            color: var(--text-muted);
+            line-height: 1.4;
+        }
+
+        /* ===== CAROUSEL STYLES ===== */
+        .carousel-section {
+            margin: 5rem 0;
+        }
+
+        .carousel-title {
+            font-size: 2.8rem;
+            margin-bottom: 3rem;
+            text-align: center;
+            color: var(--primary-color);
+        }
+
+        .carousel-subtitle {
+            text-align: center;
+            color: var(--text-muted);
+            margin-bottom: 3rem;
+            font-size: 1.6rem;
+        }
+
+        /* Mobile Carousel */
+        .mobile-carousel-wrapper {
+            margin-bottom: 6rem;
+        }
+        
+        .mobile-carousel-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 2rem;
+            margin: 2rem 0;
+            position: relative;
+        }
+
+        .phone-mockup {
+            width: 280px;
+            height: 560px;
+            background: #111;
+            border-radius: 30px;
+            position: relative;
+            padding: 10px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+            border: 8px solid #222;
+        }
+
+        .phone-notch {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 120px;
+            height: 20px;
+            background: #111;
+            border-bottom-left-radius: 10px;
+            border-bottom-right-radius: 10px;
+            z-index: 10;
+        }
+
+        .mobile-screen {
+            width: 100%;
+            height: 100%;
+            border-radius: 20px;
+            overflow: hidden;
+            position: relative;
+            background: #f5f5f5;
+        }
+
+        .mobile-screen img {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        .mobile-screen img.active {
+            opacity: 1;
+        }
+
+        /* Desktop Carousel */
+        .desktop-carousel-wrapper {
+            margin-top: 6rem;
+        }
+        
+        .desktop-carousel-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 3rem;
+            margin: 2rem 0;
+            position: relative;
+        }
+
+        .desktop-mockup {
+            width: 800px;
+            max-width: 100%;
+            height: 500px;
+            background: #e0e0e0;
+            border-radius: 15px;
+            position: relative;
+            padding: 12px;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.2);
+            border: 1px solid #ccc;
+        }
+
+        .desktop-screen-topbar {
+            height: 35px;
+            background: #f1f1f1;
+            border-top-left-radius: 8px;
+            border-top-right-radius: 8px;
+            display: flex;
+            align-items: center;
+            padding: 0 15px;
+            gap: 10px;
+            margin-bottom: 8px;
+        }
+
+        .desktop-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+
+        .desktop-dot.red { background: #ff5f57; }
+        .desktop-dot.yellow { background: #ffbd2e; }
+        .desktop-dot.green { background: #28ca42; }
+
+        .desktop-screen {
+            width: 100%;
+            height: calc(100% - 43px);
+            border-radius: 8px;
+            overflow: hidden;
+            position: relative;
+            background: white;
+        }
+
+        .desktop-screen img {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            background: white;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        .desktop-screen img.active {
+            opacity: 1;
+        }
+
+        /* Navigation Buttons */
+        .nav-btn {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--card-bg);
+            border: 2px solid var(--border-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 2rem;
+            color: var(--primary-color);
+            transition: all 0.3s ease;
+            z-index: 2;
+        }
+
+        .nav-btn:hover {
+            background: var(--primary-color);
+            color: white;
+            transform: scale(1.1);
+        }
+
+        /* Indicators */
+        .carousel-indicators {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .indicator {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--border-color);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .indicator.active {
+            background: var(--primary-color);
+            transform: scale(1.2);
+        }
+
+        .indicator:hover {
+            background: var(--primary-color);
+        }
+
+        /* Carousel Headers */
+        .carousel-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        
+        .carousel-header h4 {
+            display: inline-flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem 2rem;
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            border: 1px solid var(--border-color);
+            font-size: 1.8rem;
+            color: var(--text-color);
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .desktop-mockup {
+                width: 100%;
+                max-width: 600px;
+                height: 400px;
+                margin: 0 auto;
+            }
+            
+            .phone-mockup {
+                width: 250px;
+                height: 500px;
+                margin: 0 auto;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .project-detail {
+                padding-top: 8rem;
+            }
+            
+            .content-section h3 {
+                font-size: 2.4rem;
+            }
+            
+            .project-links-row {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            
+            .project-links-row .btn {
+                width: 100%;
+                justify-content: center;
+            }
+            
+            .carousel-title {
+                font-size: 2.2rem;
+            }
+            
+            .desktop-mockup {
+                height: 350px;
+            }
+            
+            .phone-mockup {
+                width: 220px;
+                height: 440px;
+            }
+            
+            .nav-btn {
+                width: 40px;
+                height: 40px;
+                font-size: 1.6rem;
+            }
+            
+            .live-links-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .feature-card {
+                margin-bottom: 1rem;
+            }
+            
+            .mobile-carousel-wrapper {
+                margin-bottom: 4rem;
+            }
+            
+            .desktop-carousel-wrapper {
+                margin-top: 4rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .desktop-mockup {
+                height: 250px;
+            }
+            
+            .phone-mockup {
+                width: 200px;
+                height: 400px;
+            }
+            
+            .mobile-carousel-container,
+            .desktop-carousel-container {
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- ===== HEADER ===== -->
+    <header class="header">
+        <div class="container">
+            <nav class="nav">
+                <a href="../index.html" class="logo">Badar<span>Ahmad</span></a>
+                
+                <div class="nav-links" id="navLinks">
+                    <a href="../index.html#home" class="nav-link">Home</a>
+                    <a href="../index.html#projects" class="nav-link active">Projects</a>
+                    <a href="../index.html#contact" class="nav-link">Contact</a>
+                </div>
+                
+                <div class="nav-controls">
+                    <button id="themeToggle" class="theme-toggle">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                    <button id="menuToggle" class="menu-toggle">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- ===== PROJECT DETAIL ===== -->
+    <section class="project-detail" style="padding-top: 12rem;">
+        <div class="container">
+            <div class="project-header" data-aos="fade-up">
+                <h1 class="section-title">MES Society <span>Portal</span></h1>
+                <p class="section-subtitle">Comprehensive University Society Management System for University of Lahore</p>
+                
+                <!-- UPDATED: Resized hero image -->
+                <img src="../images/projects/mes-hero.png" alt="MES Society Portal" class="project-hero-img" data-aos="fade-up" data-aos-delay="200">
+            </div>
+            
+            <div class="project-content">
+                <!-- Project Overview -->
+                <div class="content-section" data-aos="fade-up">
+                    <h3>Project Overview</h3>
+                    <p>
+                        The MES (Mechanical Engineering Society) Portal is a comprehensive web application designed 
+                        to manage all aspects of a university society. Built for the University of Lahore, this system 
+                        handles public website content, member management, event organization, competition management, 
+                        and administrative controls through an intuitive role-based interface.
+                    </p>
+                    <p>
+                        <strong>Live Website:</strong> <a href="https://mesuol.xo.je" target="_blank" style="color: var(--primary-color);">https://mesuol.xo.je</a>
+                    </p>
+                </div>
+                
+                <!-- The Challenge -->
+                <div class="content-section" data-aos="fade-up">
+                    <h3>The Challenge</h3>
+                    <p>
+                        University societies face numerous challenges in managing their operations:
+                    </p>
+                    <ul class="feature-list">
+                        <li><i class="fas fa-exclamation-circle"></i> <span>Fragmented communication across multiple platforms</span></li>
+                        <li><i class="fas fa-exclamation-circle"></i> <span>Manual membership application and approval processes</span></li>
+                        <li><i class="fas fa-exclamation-circle"></i> <span>Difficulty in organizing and tracking events and competitions</span></li>
+                        <li><i class="fas fa-exclamation-circle"></i> <span>Lack of centralized member database and ID management</span></li>
+                        <li><i class="fas fa-exclamation-circle"></i> <span>Inefficient content management for public website</span></li>
+                        <li><i class="fas fa-exclamation-circle"></i> <span>No proper role-based access control for different society positions</span></li>
+                    </ul>
+                </div>
+                
+                <!-- The Solution -->
+                <div class="content-section" data-aos="fade-up">
+                    <h3>The Solution</h3>
+                    <p>
+                        I developed a full-stack web application with separate modules for public users, society members, 
+                        and administrators. The system features:
+                    </p>
+                    <ul class="feature-list">
+                        <li><i class="fas fa-check-circle"></i> <span><strong>Multi-role authentication system</strong> with 10+ different user roles</span></li>
+                        <li><i class="fas fa-check-circle"></i> <span><strong>Public-facing website</strong> with dynamic content management</span></li>
+                        <li><i class="fas fa-check-circle"></i> <span><strong>Member portal</strong> with personalized dashboards and digital ID cards</span></li>
+                        <li><i class="fas fa-check-circle"></i> <span><strong>Event management system</strong> with registration and tracking</span></li>
+                        <li><i class="fas fa-check-circle"></i> <span><strong>Competition platform</strong> with team registration and result management</span></li>
+                        <li><i class="fas fa-check-circle"></i> <span><strong>Recruitment system</strong> with application tracking and interview scheduling</span></li>
+                    </ul>
+                </div>
+                
+                <!-- Key Features -->
+                <div class="content-section" data-aos="fade-up">
+                    <h3>Key Features</h3>
+                    
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 2rem;">
+                        <div class="feature-card">
+                            <h4><i class="fas fa-users"></i> User Management</h4>
+                            <ul>
+                                <li>10+ different user roles with hierarchical permissions</li>
+                                <li>Automated membership application and approval workflow</li>
+                                <li>Digital ID card generation with QR codes</li>
+                                <li>Profile management with skill inventory</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="feature-card">
+                            <h4><i class="fas fa-calendar-alt"></i> Event Management</h4>
+                            <ul>
+                                <li>Complete event lifecycle management</li>
+                                <li>Registration system with participant tracking</li>
+                                <li>Calendar integration with dual view (list/calendar)</li>
+                                <li>Automated reminders and notifications</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="feature-card">
+                            <h4><i class="fas fa-trophy"></i> Competition System</h4>
+                            <ul>
+                                <li>Team-based competition management</li>
+                                <li>Registration with document upload</li>
+                                <li>Result declaration and winner management</li>
+                                <li>Automated certificate generation</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="feature-card">
+                            <h4><i class="fas fa-briefcase"></i> Recruitment System</h4>
+                            <ul>
+                                <li>Online application forms with resume upload</li>
+                                <li>Interview scheduling with calendar integration</li>
+                                <li>Application status tracking</li>
+                                <li>Automated offer letter generation</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="feature-card">
+                            <h4><i class="fas fa-images"></i> Content Management</h4>
+                            <ul>
+                                <li>Dynamic gallery with album organization</li>
+                                <li>News and announcement publishing</li>
+                                <li>Rich text editor for content creation</li>
+                                <li>Approval workflow for content publishing</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="feature-card">
+                            <h4><i class="fas fa-chart-bar"></i> Analytics & Reporting</h4>
+                            <ul>
+                                <li>Dashboard with key metrics</li>
+                                <li>Event participation analytics</li>
+                                <li>Member engagement tracking</li>
+                                <li>Data export in multiple formats</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Technical Implementation -->
+                <div class="content-section" data-aos="fade-up">
+                    <h3>Technical Implementation</h3>
+                    <p>
+                        Built with modern web technologies following MVC architecture for clean code separation and maintainability.
+                    </p>
+                    
+                    <div class="tech-stack">
+                        <span>PHP 8.0+</span>
+                        <span>MySQL 8.0</span>
+                        <span>JavaScript ES6+</span>
+                        <span>Bootstrap 5</span>
+                        <span>AJAX</span>
+                        <span>jQuery</span>
+                        <span>PDO</span>
+                        <span>RESTful APIs</span>
+                        <span>Git</span>
+                        <span>Composer</span>
+                        <span>PHPMailer</span>
+                        <span>QR Code Generator</span>
+                    </div>
+                    
+                    <div style="margin-top: 3rem;">
+                        <h4>Database Architecture</h4>
+                        <p>Complex relational database with 15+ tables including:</p>
+                        <ul class="feature-list">
+                            <li><i class="fas fa-database"></i> <span><strong>Users:</strong> Multi-role user management with permissions</span></li>
+                            <li><i class="fas fa-database"></i> <span><strong>Events:</strong> Complete event data with registration tracking</span></li>
+                            <li><i class="fas fa-database"></i> <span><strong>Competitions:</strong> Team-based competition management</span></li>
+                            <li><i class="fas fa-database"></i> <span><strong>Applications:</strong> Membership and event applications</span></li>
+                            <li><i class="fas fa-database"></i> <span><strong>Galleries:</strong> Image and document management</span></li>
+                            <li><i class="fas fa-database"></i> <span><strong>Notifications:</strong> Real-time user notifications</span></li>
+                        </ul>
+                    </div>
+                    
+                    <div style="margin-top: 3rem;">
+                        <h4>Security Features</h4>
+                        <ul class="feature-list">
+                            <li><i class="fas fa-shield-alt"></i> <span><strong>SQL Injection Prevention:</strong> PDO prepared statements</span></li>
+                            <li><i class="fas fa-shield-alt"></i> <span><strong>XSS Protection:</strong> Input sanitization and output escaping</span></li>
+                            <li><i class="fas fa-shield-alt"></i> <span><strong>CSRF Protection:</strong> Token-based form validation</span></li>
+                            <li><i class="fas fa-shield-alt"></i> <span><strong>Password Security:</strong> bcrypt hashing with salt</span></li>
+                            <li><i class="fas fa-shield-alt"></i> <span><strong>Session Management:</strong> Secure session handling with regeneration</span></li>
+                            <li><i class="fas fa-shield-alt"></i> <span><strong>File Upload Security:</strong> Type validation and virus scanning</span></li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Screenshots Carousel -->
+                <div class="content-section carousel-section" data-aos="fade-up">
+                    <h3 class="carousel-title">Website Screenshots</h3>
+                    <p class="carousel-subtitle">View the responsive design across different devices</p>
+                    
+                    <!-- Mobile Carousel -->
+                    <div class="mobile-carousel-wrapper">
+                        <div class="carousel-header">
+                            <h4><i class="fas fa-mobile-alt"></i> Mobile View</h4>
+                        </div>
+                        <div class="mobile-carousel-container">
+                            <div class="nav-btn mobile-prev-btn"><i class='bx bx-chevron-left'></i></div>
+                            
+                            <div class="phone-mockup">
+                                <div class="phone-notch"></div>
+                                <div class="mobile-screen">
+                                    <img src="../images/screenshots/mes-home.jpeg" class="active" alt="MES Homepage Mobile">
+                                    <img src="../images/screenshots/mes-events.jpeg" alt="Events Page Mobile">
+                                    <img src="../images/screenshots/mes-gallery.jpeg" alt="Gallery Page Mobile">
+                                    <img src="../images/screenshots/mes-competitions.jpeg" alt="Competitions Page Mobile">
+                                    <img src="../images/screenshots/mes-apply.jpeg" alt="Application Page Mobile">
+                                    <img src="../images/screenshots/mes-team.jpeg" alt="Team Page Mobile">
+                                    <img src="../images/screenshots/mes-about.jpeg" alt="About Us Mobile">
+                                    <img src="../images/screenshots/mes-contact.jpeg" alt="Contact Us Mobile">
+                                </div>
+                            </div>
+                            
+                            <div class="nav-btn mobile-next-btn"><i class='bx bx-chevron-right'></i></div>
+                        </div>
+                        
+                        <div class="carousel-indicators mobile-indicators">
+                            <div class="indicator active"></div>
+                            <div class="indicator"></div>
+                            <div class="indicator"></div>
+                            <div class="indicator"></div>
+                            <div class="indicator"></div>
+                            <div class="indicator"></div>
+                            <div class="indicator"></div>
+                            <div class="indicator"></div>
+                        </div>
+                    </div>
+                    
+                    <!-- Desktop Carousel -->
+                    <div class="desktop-carousel-wrapper">
+                        <div class="carousel-header">
+                            <h4><i class="fas fa-desktop"></i> Desktop View</h4>
+                        </div>
+                        <div class="desktop-carousel-container">
+                            <div class="nav-btn desktop-prev-btn"><i class='bx bx-chevron-left'></i></div>
+                            
+                            <div class="desktop-mockup">
+                                <div class="desktop-screen-topbar">
+                                    <div class="desktop-dot red"></div>
+                                    <div class="desktop-dot yellow"></div>
+                                    <div class="desktop-dot green"></div>
+                                </div>
+                                <div class="desktop-screen">
+                                    <img src="../images/screenshots/mes-home-desktop.png" class="active" alt="MES Homepage Desktop">
+                                    <img src="../images/screenshots/mes-events-desktop.png" alt="Events Page Desktop">
+                                    <img src="../images/screenshots/mes-gallery-desktop.png" alt="Gallery Page Desktop">
+                                    <img src="../images/screenshots/mes-competitions-desktop.png" alt="Competitions Page Desktop">
+                                    <img src="../images/screenshots/mes-apply-desktop.png" alt="Application Page Desktop">
+                                    <img src="../images/screenshots/mes-team-desktop.png" alt="Team Page Desktop">
+                                    <img src="../images/screenshots/mes-about-desktop.png" alt="About Us Desktop">
+                                    <img src="../images/screenshots/mes-contact-desktop.png" alt="Contact Us Desktop">
+                                </div>
+                            </div>
+                            
+                            <div class="nav-btn desktop-next-btn"><i class='bx bx-chevron-right'></i></div>
+                        </div>
+                        
+                        <div class="carousel-indicators desktop-indicators">
+                            <div class="indicator active"></div>
+                            <div class="indicator"></div>
+                            <div class="indicator"></div>
+                            <div class="indicator"></div>
+                            <div class="indicator"></div>
+                            <div class="indicator"></div>
+                            <div class="indicator"></div>
+                            <div class="indicator"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project Links -->
+                <div class="content-section" data-aos="fade-up">
+                    <h3>Live Website Links</h3>
+                    <div class="live-links-grid">
+                        <a href="https://mesuol.xo.je" target="_blank" class="live-link">
+                            <i class="fas fa-home"></i>
+                            <span>Homepage</span>
+                        </a>
+                        <a href="https://mesuol.xo.je/mes-society/public/about.php" target="_blank" class="live-link">
+                            <i class="fas fa-info-circle"></i>
+                            <span>About Page</span>
+                        </a>
+                        <a href="https://mesuol.xo.je/mes-society/public/events.php" target="_blank" class="live-link">
+                            <i class="fas fa-calendar"></i>
+                            <span>Events Page</span>
+                        </a>
+                        <a href="https://mesuol.xo.je/mes-society/public/team.php" target="_blank" class="live-link">
+                            <i class="fas fa-users"></i>
+                            <span>Team Page</span>
+                        </a>
+                        <a href="https://mesuol.xo.je/mes-society/public/gallery.php" target="_blank" class="live-link">
+                            <i class="fas fa-images"></i>
+                            <span>Gallery Page</span>
+                        </a>
+                        <a href="https://mesuol.xo.je/mes-society/public/competitions.php" target="_blank" class="live-link">
+                            <i class="fas fa-trophy"></i>
+                            <span>Competitions Page</span>
+                        </a>
+                        <a href="https://mesuol.xo.je/mes-society/public/apply.php" target="_blank" class="live-link">
+                            <i class="fas fa-user-plus"></i>
+                            <span>Apply Page</span>
+                        </a>
+                        <a href="https://mesuol.xo.je/mes-society/public/contact.php" target="_blank" class="live-link">
+                            <i class="fas fa-envelope"></i>
+                            <span>Contact Page</span>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Project Impact -->
+                <div class="content-section" data-aos="fade-up">
+                    <h3>Project Impact</h3>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-top: 2rem;">
+                        <div class="impact-card">
+                            <div class="impact-number">80%</div>
+                            <div class="impact-text">Reduction in administrative workload through automation</div>
+                        </div>
+                        <div class="impact-card">
+                            <div class="impact-number">500+</div>
+                            <div class="impact-text">Active users including students and faculty members</div>
+                        </div>
+                        <div class="impact-card">
+                            <div class="impact-number">50+</div>
+                            <div class="impact-text">Events managed through the platform</div>
+                        </div>
+                        <div class="impact-card">
+                            <div class="impact-number">24/7</div>
+                            <div class="impact-text">Accessibility for members and applicants</div>
+                        </div>
+                    </div>
+                    
+                    <p style="margin-top: 2rem;">
+                        The MES Society Portal has transformed how the Mechanical Engineering Society operates at 
+                        University of Lahore. It has streamlined membership management, improved communication, 
+                        enhanced event organization, and provided valuable analytics for decision-making.
+                    </p>
+                </div>
+                
+                <!-- Project Links -->
+                <div class="content-section" data-aos="fade-up">
+                    <h3>Project Links</h3>
+                    <div class="project-links-row">
+                        <a href="https://mesuol.xo.je" target="_blank" class="btn btn-primary">
+                            <i class="fas fa-external-link-alt"></i> Visit Live Website
+                        </a>
+                        <a href="https://github.com/Badar-92/mes-society-portal" target="_blank" class="btn btn-secondary">
+                            <i class="fab fa-github"></i> View Source Code
+                        </a>
+                        <a href="../index.html#projects" class="btn btn-outline">
+                            <i class="fas fa-arrow-left"></i> Back to Portfolio
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <p>&copy; <span id="currentYear"></span> | Badar Ahmad | All Rights Reserved | MES Society Portal</p>
+                <p>Designed and developed with by Badar Ahmad</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ===== BACK TO TOP ===== -->
+    <a href="#" class="back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+
+    <!-- ===== SCRIPTS ===== -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="../js/script.js"></script>
+    <script>
+        // Carousel JavaScript
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize AOS
+            if (typeof AOS !== 'undefined') {
+                AOS.init({
+                    duration: 1000,
+                    once: true,
+                    offset: 100
+                });
+            }
+
+            // Carousel Class
+            class Carousel {
+                constructor(prefix) {
+                    this.prefix = prefix;
+                    this.screen = document.querySelector(`.${prefix}-screen`);
+                    this.images = this.screen ? this.screen.querySelectorAll('img') : [];
+                    this.indicators = document.querySelectorAll(`.${prefix}-indicators .indicator`);
+                    this.prevBtn = document.querySelector(`.${prefix}-prev-btn`);
+                    this.nextBtn = document.querySelector(`.${prefix}-next-btn`);
+                    
+                    this.currentIndex = 0;
+                    this.totalImages = this.images.length;
+                    this.autoRotateInterval = null;
+                    this.rotateDelay = 4000; // 4 seconds
+                    
+                    if (this.totalImages > 0) {
+                        this.init();
+                    }
+                }
+                
+                init() {
+                    this.setupEventListeners();
+                    this.startAutoRotate();
+                    this.updateCarousel();
+                }
+                
+                setupEventListeners() {
+                    // Previous button
+                    if (this.prevBtn) {
+                        this.prevBtn.addEventListener('click', () => {
+                            this.prevSlide();
+                            this.resetAutoRotate();
+                        });
+                    }
+                    
+                    // Next button
+                    if (this.nextBtn) {
+                        this.nextBtn.addEventListener('click', () => {
+                            this.nextSlide();
+                            this.resetAutoRotate();
+                        });
+                    }
+                    
+                    // Indicators
+                    if (this.indicators.length > 0) {
+                        this.indicators.forEach((indicator, index) => {
+                            indicator.addEventListener('click', () => {
+                                this.goToSlide(index);
+                                this.resetAutoRotate();
+                            });
+                        });
+                    }
+                    
+                    // Pause auto-rotate on hover
+                    if (this.screen) {
+                        this.screen.addEventListener('mouseenter', () => {
+                            this.pauseAutoRotate();
+                        });
+                        
+                        this.screen.addEventListener('mouseleave', () => {
+                            this.startAutoRotate();
+                        });
+                    }
+                }
+                
+                updateCarousel() {
+                    // Hide all images
+                    this.images.forEach(img => img.classList.remove('active'));
+                    
+                    // Remove active from all indicators
+                    if (this.indicators.length > 0) {
+                        this.indicators.forEach(indicator => indicator.classList.remove('active'));
+                    }
+                    
+                    // Show current image
+                    if (this.images[this.currentIndex]) {
+                        this.images[this.currentIndex].classList.add('active');
+                    }
+                    
+                    // Activate current indicator
+                    if (this.indicators[this.currentIndex]) {
+                        this.indicators[this.currentIndex].classList.add('active');
+                    }
+                }
+                
+                nextSlide() {
+                    this.currentIndex = (this.currentIndex + 1) % this.totalImages;
+                    this.updateCarousel();
+                }
+                
+                prevSlide() {
+                    this.currentIndex = (this.currentIndex - 1 + this.totalImages) % this.totalImages;
+                    this.updateCarousel();
+                }
+                
+                goToSlide(index) {
+                    this.currentIndex = index;
+                    this.updateCarousel();
+                }
+                
+                startAutoRotate() {
+                    this.pauseAutoRotate();
+                    this.autoRotateInterval = setInterval(() => {
+                        this.nextSlide();
+                    }, this.rotateDelay);
+                }
+                
+                pauseAutoRotate() {
+                    if (this.autoRotateInterval) {
+                        clearInterval(this.autoRotateInterval);
+                        this.autoRotateInterval = null;
+                    }
+                }
+                
+                resetAutoRotate() {
+                    this.pauseAutoRotate();
+                    this.startAutoRotate();
+                }
+            }
+            
+            // Initialize carousels
+            const mobileCarousel = new Carousel('mobile');
+            const desktopCarousel = new Carousel('desktop');
+            
+            // Touch/swipe support
+            let touchStartX = 0;
+            let touchEndX = 0;
+            
+            const mobileScreen = document.querySelector('.mobile-screen');
+            const desktopScreen = document.querySelector('.desktop-screen');
+            
+            function handleTouchStart(e) {
+                touchStartX = e.changedTouches[0].screenX;
+            }
+            
+            function handleTouchEnd(e) {
+                touchEndX = e.changedTouches[0].screenX;
+                handleSwipe();
+            }
+            
+            function handleSwipe() {
+                const swipeThreshold = 50;
+                
+                if (touchStartX - touchEndX > swipeThreshold) {
+                    // Swipe left - next slide
+                    mobileCarousel.nextSlide();
+                    desktopCarousel.nextSlide();
+                }
+                
+                if (touchEndX - touchStartX > swipeThreshold) {
+                    // Swipe right - previous slide
+                    mobileCarousel.prevSlide();
+                    desktopCarousel.prevSlide();
+                }
+                
+                // Reset auto-rotate after swipe
+                mobileCarousel.resetAutoRotate();
+                desktopCarousel.resetAutoRotate();
+            }
+            
+            // Add touch events for mobile carousel
+            if (mobileScreen) {
+                mobileScreen.addEventListener('touchstart', handleTouchStart, false);
+                mobileScreen.addEventListener('touchend', handleTouchEnd, false);
+            }
+            
+            // Add touch events for desktop carousel
+            if (desktopScreen) {
+                desktopScreen.addEventListener('touchstart', handleTouchStart, false);
+                desktopScreen.addEventListener('touchend', handleTouchEnd, false);
+            }
+            
+            // Keyboard navigation support
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'ArrowLeft') {
+                    mobileCarousel.prevSlide();
+                    desktopCarousel.prevSlide();
+                    mobileCarousel.resetAutoRotate();
+                    desktopCarousel.resetAutoRotate();
+                } else if (e.key === 'ArrowRight') {
+                    mobileCarousel.nextSlide();
+                    desktopCarousel.nextSlide();
+                    mobileCarousel.resetAutoRotate();
+                    desktopCarousel.resetAutoRotate();
+                }
+            });
+
+            // Set current year in footer
+            const currentYearElement = document.getElementById('currentYear');
+            if (currentYearElement) {
+                currentYearElement.textContent = new Date().getFullYear();
+            }
+            
+            // Debug: Check if carousels are initialized
+            console.log('Mobile carousel images:', mobileCarousel.totalImages);
+            console.log('Desktop carousel images:', desktopCarousel.totalImages);
+        });
+    </script>
+</body>
+</html>

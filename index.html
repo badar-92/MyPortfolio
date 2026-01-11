@@ -3,725 +3,161 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Badar Ahmad - Portfolio</title>
-    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <title>Badar Ahmad | Portfolio</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    
+    <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    
+    <!-- AOS Animation -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <style>
-        :root {
-            --primary: #2563eb;
-            --primary-dark: #1d4ed8;
-            --secondary: #64748b;
-            --dark: #0f172a;
-            --light: #f8fafc;
-            --gray: #94a3b8;
-            --success: #10b981;
-            --card-bg: #1e293b;
-            --transition: all 0.3s ease;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Poppins', sans-serif;
-            background-color: var(--dark);
-            color: var(--light);
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
-
-        .container {
-            width: 90%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        /* Header & Navigation */
-        header {
-            background-color: rgba(15, 23, 42, 0.95);
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            padding: 1rem 0;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-        }
-
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: var(--light);
-        }
-
-        .logo span {
-            color: var(--primary);
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 2rem;
-        }
-
-        .nav-links a {
-            color: var(--light);
-            text-decoration: none;
-            font-weight: 500;
-            transition: var(--transition);
-            position: relative;
-        }
-
-        .nav-links a:hover {
-            color: var(--primary);
-        }
-
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: -5px;
-            left: 0;
-            background-color: var(--primary);
-            transition: var(--transition);
-        }
-
-        .nav-links a:hover::after {
-            width: 100%;
-        }
-
-        .menu-toggle {
-            display: none;
-            background: none;
-            border: none;
-            color: var(--light);
-            font-size: 1.5rem;
-            cursor: pointer;
-        }
-
-        /* Hero Section */
-        .hero {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            padding: 100px 0 50px;
-            position: relative;
-        }
-
-        .hero-content {
-            max-width: 600px;
-        }
-
-        .hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 1rem;
-            line-height: 1.2;
-        }
-
-        .hero h1 span {
-            color: var(--primary);
-        }
-
-        .hero p {
-            font-size: 1.2rem;
-            color: var(--gray);
-            margin-bottom: 2rem;
-        }
-
-        .btn {
-            display: inline-block;
-            padding: 12px 30px;
-            background-color: var(--primary);
-            color: white;
-            border: none;
-            border-radius: 5px;
-            font-weight: 600;
-            text-decoration: none;
-            transition: var(--transition);
-            cursor: pointer;
-        }
-
-        .btn:hover {
-            background-color: var(--primary-dark);
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(37, 99, 235, 0.3);
-        }
-
-        .btn-outline {
-            background-color: transparent;
-            border: 2px solid var(--primary);
-            margin-left: 15px;
-        }
-
-        .btn-outline:hover {
-            background-color: var(--primary);
-        }
-
-        .hero-image {
-            position: absolute;
-            right: 0;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 45%;
-            height: 80%;
-            border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
-            overflow: hidden;
-            z-index: -1;
-            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .profile-photo {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
-        }
-
-        /* Sections */
-        section {
-            padding: 100px 0;
-        }
-
-        .section-title {
-            text-align: center;
-            margin-bottom: 3rem;
-        }
-
-        .section-title h2 {
-            font-size: 2.5rem;
-            position: relative;
-            display: inline-block;
-            margin-bottom: 1rem;
-        }
-
-        .section-title h2::after {
-            content: '';
-            position: absolute;
-            width: 70px;
-            height: 4px;
-            background-color: var(--primary);
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            border-radius: 2px;
-        }
-
-        .section-title p {
-            color: var(--gray);
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        /* About Section */
-        .about-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            align-items: center;
-        }
-
-        .about-text h3 {
-            font-size: 1.8rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .about-text p {
-            margin-bottom: 1.5rem;
-            color: var(--gray);
-        }
-
-        .skills-list {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1rem;
-            margin-top: 2rem;
-        }
-
-        .skill-tag {
-            background-color: var(--card-bg);
-            padding: 8px 15px;
-            border-radius: 30px;
-            font-size: 0.9rem;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .about-image {
-            background-color: var(--card-bg);
-            height: 400px;
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .about-image::before {
-            content: '';
-            position: absolute;
-            width: 150px;
-            height: 150px;
-            background: linear-gradient(135deg, var(--primary), transparent);
-            border-radius: 50%;
-            top: -30px;
-            right: -30px;
-        }
-
-        .about-image::after {
-            content: '';
-            position: absolute;
-            width: 100px;
-            height: 100px;
-            background: linear-gradient(135deg, var(--primary), transparent);
-            border-radius: 50%;
-            bottom: -20px;
-            left: -20px;
-        }
-
-        /* Projects Section */
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-            gap: 2rem;
-        }
-
-        .project-card {
-            background-color: var(--card-bg);
-            border-radius: 10px;
-            overflow: hidden;
-            transition: var(--transition);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .project-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
-        }
-
-        .project-image {
-            height: 200px;
-            background-color: var(--primary);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 3rem;
-        }
-
-        .project-content {
-            padding: 1.5rem;
-        }
-
-        .project-content h3 {
-            font-size: 1.3rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .project-content p {
-            color: var(--gray);
-            margin-bottom: 1rem;
-            font-size: 0.95rem;
-        }
-
-        .project-tech {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .tech-tag {
-            background-color: rgba(37, 99, 235, 0.2);
-            color: var(--primary);
-            padding: 5px 10px;
-            border-radius: 5px;
-            font-size: 0.8rem;
-        }
-
-        .project-links {
-            display: flex;
-            gap: 1rem;
-        }
-
-        .project-link {
-            color: var(--primary);
-            text-decoration: none;
-            font-weight: 500;
-            display: flex;
-            align-items: center;
-            gap: 5px;
-            transition: var(--transition);
-        }
-
-        .project-link:hover {
-            color: var(--light);
-        }
-
-        /* Education Section */
-        .education-timeline {
-            max-width: 800px;
-            margin: 0 auto;
-            position: relative;
-        }
-
-        .education-timeline::before {
-            content: '';
-            position: absolute;
-            width: 3px;
-            height: 100%;
-            background-color: var(--primary);
-            left: 50%;
-            transform: translateX(-50%);
-        }
-
-        .timeline-item {
-            width: 50%;
-            padding: 2rem;
-            position: relative;
-        }
-
-        .timeline-item:nth-child(odd) {
-            left: 0;
-        }
-
-        .timeline-item:nth-child(even) {
-            left: 50%;
-        }
-
-        .timeline-content {
-            background-color: var(--card-bg);
-            padding: 1.5rem;
-            border-radius: 10px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .timeline-content h3 {
-            font-size: 1.3rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .timeline-content .date {
-            color: var(--primary);
-            font-weight: 500;
-            margin-bottom: 0.5rem;
-        }
-
-        .timeline-content p {
-            color: var(--gray);
-        }
-
-        .timeline-item::after {
-            content: '';
-            position: absolute;
-            width: 20px;
-            height: 20px;
-            background-color: var(--primary);
-            border-radius: 50%;
-            top: 50%;
-            transform: translateY(-50%);
-        }
-
-        .timeline-item:nth-child(odd)::after {
-            right: -10px;
-        }
-
-        .timeline-item:nth-child(even)::after {
-            left: -10px;
-        }
-
-        /* Contact Section */
-        .contact-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-        }
-
-        .contact-info {
-            display: flex;
-            flex-direction: column;
-            gap: 1.5rem;
-        }
-
-        .contact-item {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-
-        .contact-icon {
-            width: 50px;
-            height: 50px;
-            background-color: var(--card-bg);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.2rem;
-            color: var(--primary);
-        }
-
-        .contact-text h3 {
-            font-size: 1.1rem;
-            margin-bottom: 0.3rem;
-        }
-
-        .contact-text p {
-            color: var(--gray);
-        }
-
-        .social-links {
-            display: flex;
-            gap: 1rem;
-            margin-top: 2rem;
-        }
-
-        .social-link {
-            width: 45px;
-            height: 45px;
-            background-color: var(--card-bg);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--light);
-            text-decoration: none;
-            transition: var(--transition);
-        }
-
-        .social-link:hover {
-            background-color: var(--primary);
-            transform: translateY(-5px);
-        }
-
-        .contact-form {
-            background-color: var(--card-bg);
-            padding: 2rem;
-            border-radius: 10px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 0.5rem;
-            font-weight: 500;
-        }
-
-        .form-control {
-            width: 100%;
-            padding: 12px 15px;
-            background-color: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 5px;
-            color: var(--light);
-            font-family: 'Poppins', sans-serif;
-            transition: var(--transition);
-        }
-
-        .form-control:focus {
-            outline: none;
-            border-color: var(--primary);
-        }
-
-        textarea.form-control {
-            min-height: 150px;
-            resize: vertical;
-        }
-
-        /* Footer */
-        footer {
-            background-color: var(--card-bg);
-            padding: 2rem 0;
-            text-align: center;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .footer-content p {
-            color: var(--gray);
-            margin-bottom: 1rem;
-        }
-
-        /* Theme Toggle */
-        .theme-toggle {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            width: 50px;
-            height: 50px;
-            background-color: var(--primary);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-            z-index: 100;
-            transition: var(--transition);
-        }
-
-        .theme-toggle:hover {
-            transform: rotate(30deg);
-        }
-
-        /* Form Status Messages */
-        .form-status {
-            padding: 10px;
-            border-radius: 5px;
-            margin-bottom: 1rem;
-            display: none;
-        }
-
-        .form-status.success {
-            background-color: rgba(16, 185, 129, 0.2);
-            border: 1px solid var(--success);
-            color: var(--success);
-            display: block;
-        }
-
-        .form-status.error {
-            background-color: rgba(239, 68, 68, 0.2);
-            border: 1px solid #ef4444;
-            color: #ef4444;
-            display: block;
-        }
-
-        /* Responsive Design */
-        @media (max-width: 992px) {
-            .hero h1 {
-                font-size: 2.8rem;
-            }
-
-            .about-content, .contact-content {
-                grid-template-columns: 1fr;
-            }
-
-            .education-timeline::before {
-                left: 30px;
-            }
-
-            .timeline-item {
-                width: 100%;
-                padding-left: 70px;
-                padding-right: 0;
-            }
-
-            .timeline-item:nth-child(even) {
-                left: 0;
-            }
-
-            .timeline-item::after {
-                left: 20px !important;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-                position: absolute;
-                top: 100%;
-                left: 0;
-                width: 100%;
-                background-color: var(--dark);
-                flex-direction: column;
-                padding: 1rem 0;
-                text-align: center;
-                box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
-            }
-
-            .nav-links.active {
-                display: flex;
-            }
-
-            .menu-toggle {
-                display: block;
-            }
-
-            .hero {
-                text-align: center;
-            }
-
-            .hero-image {
-                display: none;
-            }
-
-            .projects-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .btn-outline {
-                margin-left: 0;
-                margin-top: 15px;
-            }
-        }
-    </style>
+    
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/carousel.css">
 </head>
 <body>
-    <!-- Header -->
-    <header>
+    <!-- ===== HEADER ===== -->
+    <header class="header">
         <div class="container">
-            <nav>
-                <div class="logo">Badar<span>Ahmad</span></div>
-                <div class="nav-links">
-                    <a href="#home">Home</a>
-                    <a href="#about">About</a>
-                    <a href="#projects">Projects</a>
-                    <a href="#education">Education</a>
-                    <a href="#contact">Contact</a>
+            <nav class="nav">
+                <a href="#home" class="logo">Badar<span>Ahmad</span></a>
+                
+                <div class="nav-links" id="navLinks">
+                    <a href="#home" class="nav-link active">Home</a>
+                    <a href="#about" class="nav-link">About</a>
+                    <a href="#experience" class="nav-link">Experience</a>
+                    <a href="#projects" class="nav-link">Projects</a>
+                    <a href="#education" class="nav-link">Education</a>
+                    <a href="#contact" class="nav-link">Contact</a>
                 </div>
-                <button class="menu-toggle">
-                    <i class="fas fa-bars"></i>
-                </button>
+                
+                <div class="nav-controls">
+                    <button id="themeToggle" class="theme-toggle">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                    <button id="menuToggle" class="menu-toggle">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
             </nav>
         </div>
     </header>
 
-    <!-- Hero Section -->
+    <!-- ===== HERO SECTION ===== -->
     <section id="home" class="hero">
         <div class="container">
             <div class="hero-content" data-aos="fade-right">
-                <h1>Hi, I'm <span>Badar Ahmad</span></h1>
-                <p>A passionate BSCS Student & Software Developer focused on creating efficient, responsive, and functional applications.</p>
-                <div>
-                    <a href="#projects" class="btn">View My Work</a>
-                    <a href="#contact" class="btn btn-outline">Get In Touch</a>
+                <h3>Hello, I am</h3>
+                <h1>Badar Ahmad</h1>
+                <p>
+                    I'm a passionate Full-Stack Developer & BSCS Student at University of Lahore, 
+                    specializing in web development, database management, and creating efficient, 
+                    responsive applications.
+                </p>
+                <br>
+                <p>
+                    With hands-on experience in PHP, JavaScript, Python, and modern frameworks, 
+                    I create scalable solutions that solve real-world problems. My journey includes 
+                    building educational systems, POS systems, and publishing projects on GitHub.
+                </p>
+
+                <div class="social-media">
+                    <a href="https://www.linkedin.com/in/92-badar" target="_blank" title="LinkedIn">
+                        <i class='bx bxl-linkedin'></i>
+                    </a>
+                    <a href="https://github.com/Badar-92" target="_blank" title="GitHub">
+                        <i class='bx bxl-github'></i>
+                    </a>
+                    <a href="mailto:badarbhatt.pk786@example.com" target="_blank" title="Email">
+                        <i class='bx bxl-gmail'></i>
+                    </a>
+                    <a href="https://wa.me/qr/BMDZR63SI5Y6O1" target="_blank" title="WhatsApp">
+                        <i class='bx bxl-whatsapp'></i>
+                    </a>
+                    <a href="https://www.instagram.com/me.bhatty_92/?igsh=MXBnMzl1eTFkcHViaA%3D%3D#" target="_blank" title="Instagram">
+                        <i class='bx bxl-instagram'></i>
+                    </a>
+                    <a href="https://x.com/BadarBhatti92?t=dD8Z1CEeqHbdL5Cr0tDXQQ&s=09" target="_blank" title="Twitter/X">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" style="border-bottom: 2px solid; padding-bottom: 2px; vertical-align: middle;">
+  <path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"/>
+</svg>
+                    </a>
+                    <a href="https://www.facebook.com/badar.bhatti.924?rdid=Ptt983YDFZ6k0jp0&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F1Bko47NAup%2F#" target="_blank" title="Facebook">
+                        <i class='bx bxl-facebook'></i>
+                    </a>
+                </div>
+
+                <div class="hero-buttons">
+                    <a href="#projects" class="btn btn-primary">View My Work</a>
+                    <a href="#contact" class="btn btn-secondary">Get In Touch</a>
+                    <a href="assets/resume.pdf" class="btn btn-outline" download>
+                        <i class="fas fa-download"></i> Download CV
+                    </a>
                 </div>
             </div>
-        </div>
-        <div class="hero-image">
-            <!-- Replace "profile.jpg" with your actual photo file name -->
-            <img src="badar 2.jpg" alt="Badar Ahmad" class="profile-photo">
+
+            <!-- Profession Rotating Box -->
+            <div class="profession-container">
+                <div class="profession-box">
+                    <div class="profession" style="--i:0;">
+                        <i class='bx bx-code-alt' style="padding-right: 50px;"></i>
+                        <h3>Full-Stack Developer</h3>
+                    </div>
+                    <div class="profession" style="--i:1;">
+                        <div style="display: flex; gap: 10px; align-items: center;">
+                            <i class='bx bxl-php'></i>
+                            <i class='bx bxl-python'></i>
+                        </div>
+                        <h3>PHP & Python<br>Developer</h3>
+                    </div>
+                    <div class="profession" style="--i:2; padding-left: 4%;">
+                        <i class='bx bx-data' style="padding-right: 12%;"></i>
+                        <h3>Database<br>Management</h3>
+                    </div>
+                    <div class="profession" style="--i:3;">
+                        <i class='bx bxl-javascript' style="padding-right: 30%;"></i>
+                        <h3>JavaScript<br>Development</h3>
+                    </div>
+
+                    <div class="circle"></div>
+                </div>
+
+                <div class="overlay"></div>
+            </div>
+
+            <div class="home-img">
+                <img src="images/profile.png" alt="Badar Ahmad">
+            </div>
         </div>
     </section>
 
-    <!-- About Section -->
-    <section id="about" class="about">
+    <!-- ===== ABOUT SECTION ===== -->
+    <section id="about" class="section about">
         <div class="container">
-            <div class="section-title" data-aos="fade-up">
-                <h2>About Me</h2>
-                <p>Learn more about my background, skills, and interests</p>
+            <div class="section-header" data-aos="fade-up">
+                <h2 class="section-title">About <span>Me</span></h2>
+                <p class="section-subtitle">Learn more about my background, skills, and interests</p>
             </div>
+            
             <div class="about-content">
                 <div class="about-text" data-aos="fade-right">
-                    <h3>Computer Science Student & Developer</h3>
-                    <p>I'm a Computer Science student at University of Lahore, specializing in full-stack web development, database management systems, and object-oriented programming.</p>
-                    <p>My focus is on delivering performance-driven and efficient solutions while maintaining clean, maintainable code across multiple programming paradigms.</p>
+                    <h3>BSCS Student & Software Developer</h3>
+                    <p>
+                        I'm a Computer Science student at University of Lahore, specializing in full-stack web development, 
+                        database management systems, and object-oriented programming.
+                    </p>
+                    <p>
+                        My focus is on delivering performance-driven and efficient solutions while maintaining clean, 
+                        maintainable code across multiple programming paradigms.
+                    </p>
+                    
                     <div class="skills-list">
                         <span class="skill-tag">C++</span>
                         <span class="skill-tag">Python</span>
@@ -733,150 +169,194 @@
                         <span class="skill-tag">Bootstrap</span>
                         <span class="skill-tag">PDO</span>
                         <span class="skill-tag">API Development</span>
+                        <span class="skill-tag">Git</span>
+                        <span class="skill-tag">REST APIs</span>
+                        <span class="skill-tag">Problem Solving</span>
+                        <span class="skill-tag">Data Structures</span>
                     </div>
                 </div>
-                <div class="about-image" data-aos="fade-left">
-                    <i class="fas fa-code" style="font-size: 5rem; color: var(--primary);"></i>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Projects Section -->
-    <section id="projects" class="projects">
-        <div class="container">
-            <div class="section-title" data-aos="fade-up">
-                <h2>My Projects</h2>
-                <p>A showcase of my recent work and development projects</p>
-            </div>
-            <div class="projects-grid">
-                <!-- Project 1 -->
-                <div class="project-card" data-aos="fade-up" data-aos-delay="100">
-                    <div class="project-image">
-                        <i class="fas fa-cogs"></i>
+                
+                <div class="about-details" data-aos="fade-left">
+                    <div class="detail-card">
+                        <h3><i class="fas fa-bullseye"></i> Current Focus</h3>
+                        <p>Advancing my skills in full-stack development while completing my BSCS degree. 
+                        Building real-world projects to solve practical problems.</p>
                     </div>
-                    <div class="project-content">
-                        <h3>Society Management System</h3>
-                        <p>A comprehensive university society management system with multi-role access control, member lifecycle automation, event and competition coordination, and centralized content and communication workflows.</p>
-                        <div class="project-tech">
-                            <span class="tech-tag">PHP</span>
-                            <span class="tech-tag">MySQL</span>
-                            <span class="tech-tag">JavaScript</span>
-                            <span class="tech-tag">Bootstrap</span>
-                            <span class="tech-tag">PDO</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://mesuol.xo.je/" class="project-link" target="_blank"><i class="fas fa-external-link-alt"></i> Live Demo</a>
-                            <a href="https://github.com/badar-92/mes-society" class="project-link" target="_blank"><i class="fab fa-github"></i> Source Code</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project 2 -->
-                <div class="project-card" data-aos="fade-up" data-aos-delay="200">
-                    <div class="project-image">
-                        <i class="fas fa-cash-register"></i>
-                    </div>
-                    <div class="project-content">
-                        <h3>POS & Inventory Management</h3>
-                        <p>A comprehensive Point of Sale and inventory management solution with multi-role authentication, barcode generation, and real-time sales analytics.</p>
-                        <div class="project-tech">
-                            <span class="tech-tag">PHP</span>
-                            <span class="tech-tag">MySQL</span>
-                            <span class="tech-tag">JavaScript</span>
-                            <span class="tech-tag">CSS3</span>
-                            <span class="tech-tag">HTML5</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://mystorebybadar.infinityfreeapp.com/pos_system/index.php" class="project-link" target="_blank"><i class="fas fa-external-link-alt"></i> Live Demo</a>
-                            <a href="https://github.com/Badar-92/pos-inventory-system" class="project-link" target="_blank"><i class="fab fa-github"></i> Source Code</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project 3 -->
-                <div class="project-card" data-aos="fade-up" data-aos-delay="300">
-                    <div class="project-image">
-                        <i class="fas fa-gamepad"></i>
-                    </div>
-                    <div class="project-content">
-                        <h3>Snake Game</h3>
-                        <p>A feature-rich implementation of the classic Snake game with multiple difficulty levels, special food items, and visual effects.</p>
-                        <div class="project-tech">
-                            <span class="tech-tag">Python</span>
-                            <span class="tech-tag">Pygame</span>
-                            <span class="tech-tag">Turtle Graphics</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://replit.com/@badarbhattpk786/snake-game" class="project-link" target="_blank"><i class="fas fa-external-link-alt"></i> Live Demo</a>
-                            <a href="https://github.com/Badar-92/snake-game" class="project-link" target="_blank"><i class="fab fa-github"></i> Source Code</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project 4 - Card Game -->
-                <div class="project-card" data-aos="fade-up" data-aos-delay="400">
-                    <div class="project-image">
-                        <i class="fas fa-object-group ""></i>
-                    </div>
-                    <div class="project-content">
-                        <h3>Bhabhi/Thula Card Game</h3>
-                        <p>A traditional card game implementation with strict follow-suit enforcement, real-time animations, and strategic CPU opponents with visual cues.</p>
-                        <div class="project-tech">
-                            <span class="tech-tag">Python</span>
-                            <span class="tech-tag">Pygame</span>
-                            <span class="tech-tag">OOP</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://replit.com/@70154287/card-game" class="project-link" target="_blank"><i class="fas fa-external-link-alt"></i> Live Demo</a>
-                            <a href="https://github.com/Badar-92/card-game" class="project-link" target="_blank"><i class="fab fa-github"></i> Source Code</a>
-                        </div>
+                    
+                    <div class="detail-card">
+                        <h3><i class="fas fa-rocket"></i> Achievements</h3>
+                        <p>• Built 10+ projects including Educational Management System and POS System<br>
+                           • 500+ GitHub contributions<br>
+                           • Active open-source contributor</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Education Section -->
-    <section id="education" class="education">
+    <!-- ===== EXPERIENCE SECTION ===== -->
+    <section id="experience" class="section experience">
         <div class="container">
-            <div class="section-title" data-aos="fade-up">
-                <h2>Education</h2>
-                <p>My academic background and qualifications</p>
+            <div class="section-header" data-aos="fade-up">
+                <h2 class="section-title">My <span>Experience</span></h2>
+                <p class="section-subtitle">Professional journey and projects</p>
             </div>
-            <div class="education-timeline">
+            
+            <div class="experience-timeline">
+                <!-- Experience 1 -->
                 <div class="timeline-item" data-aos="fade-right">
                     <div class="timeline-content">
+                        <h3>Freelance Web Developer</h3>
+                        <div class="date">2023 - Present</div>
+                        <p>Developing responsive websites and web applications for clients. Specializing in PHP, JavaScript, and database solutions.</p>
+                    </div>
+                </div>
+                
+                <!-- Experience 2 -->
+                <div class="timeline-item" data-aos="fade-left">
+                    <div class="timeline-content">
+                        <h3>Open Source Contributor</h3>
+                        <div class="date">2022 - Present</div>
+                        <p>Contributing to various open-source projects on GitHub. Focus on web development tools and educational resources.</p>
+                    </div>
+                </div>
+                
+                <!-- Experience 3 -->
+                <div class="timeline-item" data-aos="fade-right">
+                    <div class="timeline-content">
+                        <h3>Student Developer</h3>
+                        <div class="date">2021 - Present</div>
+                        <p>Building projects as part of coursework and personal learning. Developing full-stack applications with modern technologies.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== PROJECTS SECTION ===== -->
+    <section id="projects" class="section projects">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2 class="section-title">Featured <span>Projects</span></h2>
+                <p class="section-subtitle">A showcase of my recent work and development projects</p>
+            </div>
+            
+            <div class="portfolio-container">
+                <!-- Project 1 -->
+<!-- In the portfolio-container section -->
+<a href="projects/mes-society.html" class="portfolio-box" data-aos="fade-up" data-aos-delay="100">
+    <div class="portfolio-image">
+        <i class="fas fa-university"></i>
+    </div>
+    <div class="portfolio-layer">
+        <h4>MES Society Portal</h4>
+        <p>Comprehensive University Society Management System with 10+ user roles</p>
+        <div class="case-study-btn">
+            <span>View Case Study</span>
+            <i class='bx bx-link-external'></i>
+        </div>
+    </div>
+</a>
+                
+                <!-- Project 2 -->
+                <a href="projects/pos-system.html" class="portfolio-box" data-aos="fade-up" data-aos-delay="200">
+                    <div class="portfolio-image">
+                        <i class="fas fa-cash-register"></i>
+                    </div>
+                    <div class="portfolio-layer">
+                        <h4>POS & Inventory Management</h4>
+                        <p>Point of Sale system with inventory management and real-time analytics</p>
+                        <div class="case-study-btn">
+                            <span>View Case Study</span>
+                            <i class='bx bx-link-external'></i>
+                        </div>
+                    </div>
+                </a>
+                
+                <!-- Project 3 -->
+                <a href="projects/snake-game.html" class="portfolio-box" data-aos="fade-up" data-aos-delay="300">
+                    <div class="portfolio-image">
+                        <i class="fas fa-gamepad"></i>
+                    </div>
+                    <div class="portfolio-layer">
+                        <h4>Snake Game</h4>
+                        <p>Feature-rich implementation of classic Snake game with multiple difficulty levels</p>
+                        <div class="case-study-btn">
+                            <span>View Case Study</span>
+                            <i class='bx bx-link-external'></i>
+                        </div>
+                    </div>
+                </a>
+                
+                <!-- Project 4 -->
+                <a href="projects/card-game.html" class="portfolio-box" data-aos="fade-up" data-aos-delay="400">
+                    <div class="portfolio-image">
+                        <i class="fas fa-gamepad"></i>
+                    </div>
+                    <div class="portfolio-layer">
+                        <h4>Bhabhi/Thula Card Game</h4>
+                        <p>Traditional card game with real-time animations and strategic CPU opponents</p>
+                        <div class="case-study-btn">
+                            <span>View Case Study</span>
+                            <i class='bx bx-link-external'></i>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            
+            <div class="text-center" data-aos="fade-up">
+                <a href="https://github.com/Badar-92" target="_blank" class="btn btn-primary">
+                    <i class="fab fa-github"></i> View More on GitHub
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== EDUCATION SECTION ===== -->
+    <section id="education" class="section education">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2 class="section-title">My <span>Education</span></h2>
+                <p class="section-subtitle">Academic background and qualifications</p>
+            </div>
+            
+            <div class="education-timeline">
+                <div class="education-item" data-aos="fade-right">
+                    <div class="education-content">
                         <h3>Bachelor of Science in Computer Science</h3>
                         <div class="date">2024 - 2027 (Expected)</div>
                         <p>University of Lahore (UOL) - Current Student</p>
+                        <p>Courses: Data Structures, Algorithms, Database Systems, Web Development, Software Engineering</p>
                     </div>
                 </div>
-                <div class="timeline-item" data-aos="fade-left">
-                    <div class="timeline-content">
+                <div class="education-item" data-aos="fade-left">
+                    <div class="education-content">
                         <h3>FSC Pre-Engineering</h3>
                         <div class="date">2021 - 2023</div>
                         <p>Punjab Group of Colleges</p>
+                        <p>Grades: 85% | Subjects: Mathematics, Physics, Chemistry, English</p>
                     </div>
                 </div>
-                <div class="timeline-item" data-aos="fade-right">
-                    <div class="timeline-content">
+                <div class="education-item" data-aos="fade-right">
+                    <div class="education-content">
                         <h3>Matriculation</h3>
                         <div class="date">2019 - 2021</div>
                         <p>Al Badar Public High School</p>
+                        <p>Grades: 98% | Subjects: Mathematics, Physics, Biology, Chemistry</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="contact">
+    <!-- ===== CONTACT SECTION ===== -->
+    <section id="contact" class="section contact">
         <div class="container">
-            <div class="section-title" data-aos="fade-up">
-                <h2>Get In Touch</h2>
-                <p>Feel free to reach out for collaborations or opportunities</p>
+            <div class="section-header" data-aos="fade-up">
+                <h2 class="section-title">Get In <span>Touch</span></h2>
+                <p class="section-subtitle">Feel free to reach out for collaborations or opportunities</p>
             </div>
+            
             <div class="contact-content">
                 <div class="contact-info" data-aos="fade-right">
                     <div class="contact-item">
@@ -888,6 +368,21 @@
                             <p>badarbhatt.pk786@example.com</p>
                         </div>
                     </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h3>Phone / WhatsApp</h3>
+                            <p>
+                                <a href="https://wa.me/923006943576" target="_blank" style="color: var(--text-muted); text-decoration: none;">
+                                    +92 300 6943576
+                                </a>
+                            </p>
+                        </div>
+                    </div>
+                    
                     <div class="contact-item">
                         <div class="contact-icon">
                             <i class="fas fa-map-marker-alt"></i>
@@ -897,198 +392,85 @@
                             <p>Lahore, Pakistan</p>
                         </div>
                     </div>
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-phone"></i>
-                        </div>
-                        <div class="contact-text">
-                            <h3>Phone</h3>
-                            <p>+92 300 6943576</p>
-                        </div>
-                    </div>
+                    
                     <div class="social-links">
-                        <a href="https://github.com/Badar-92" class="social-link" target="_blank"><i class="fab fa-github"></i></a>
-                        <a href="https://www.linkedin.com/in/92-badar" class="social-link" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="https://www.instagram.com/me.bhatty_92?igsh=MXBnMzl1eTFkcHViaA==" class="social-link" target="_blank"><i class="fab fa-instagram"></i></a>
-                        <a href="https://x.com/BadarBhatti92?t=dD8Z1CEeqHbdL5Cr0tDXQQ&s=09" class="social-link" target="_blank"><i class="fab fa-twitter"></i></a>
-                        <a href="https://www.facebook.com/share/1Bko47NAup/" class="social-link" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://github.com/Badar-92" target="_blank" class="social-link" title="GitHub">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/in/92-badar" target="_blank" class="social-link" title="LinkedIn">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="https://wa.me/qr/BMDZR63SI5Y6O1" target="_blank" class="social-link" title="WhatsApp">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                        <a href="https://www.instagram.com/me.bhatty_92/?igsh=MXBnMzl1eTFkcHViaA%3D%3D#" target="_blank" class="social-link" title="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://x.com/BadarBhatti92?t=dD8Z1CEeqHbdL5Cr0tDXQQ&s=09" target="_blank" class="social-link" title="Twitter/X">
+<svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+  <path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"/>
+</svg>                        </a>
+                        <a href="https://www.facebook.com/badar.bhatti.924?rdid=Ptt983YDFZ6k0jp0&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F1Bko47NAup%2F#" target="_blank" class="social-link" title="Facebook">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="mailto:badarbhatt.pk786@example.com" class="social-link" title="Email">
+                            <i class="fas fa-envelope"></i>
+                        </a>
                     </div>
                 </div>
+                
                 <div class="contact-form" data-aos="fade-left">
-                    <!-- Formspree Form - REPLACE YOUR_FORMSPREE_ID with your actual Formspree ID -->
                     <form id="contactForm" action="https://formspree.io/f/xblqlzde" method="POST">
                         <div id="formStatus" class="form-status"></div>
+                        
                         <div class="form-group">
-                            <label for="name">Your Name</label>
-                            <input type="text" id="name" name="name" class="form-control" required>
+                            <input type="text" id="name" name="name" class="form-control" placeholder="Your Name" required>
                         </div>
+                        
                         <div class="form-group">
-                            <label for="email">Your Email</label>
-                            <input type="email" id="email" name="email" class="form-control" required>
+                            <input type="email" id="email" name="email" class="form-control" placeholder="Your Email" required>
                         </div>
+                        
                         <div class="form-group">
-                            <label for="subject">Subject</label>
-                            <input type="text" id="subject" name="subject" class="form-control" required>
+                            <input type="text" id="contact" name="contact" class="form-control" placeholder="Phone Number" required>
                         </div>
+
                         <div class="form-group">
-                            <label for="message">Your Message</label>
-                            <textarea id="message" name="message" class="form-control" required></textarea>
+                            <input type="text" id="subject" name="subject" class="form-control" placeholder="Subject" required>
                         </div>
-                        <button type="submit" class="btn">Send Message</button>
+                        
+                        <div class="form-group">
+                            <textarea id="message" name="message" class="form-control" placeholder="Your Message" rows="5" required></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary">
+                            <span>Send Message</span>
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
                     </form>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer>
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer">
         <div class="container">
             <div class="footer-content">
-                <p>&copy; 2023 Badar Ahmad. All Rights Reserved.</p>
-                <p>Designed and developed with <i class="fas fa-heart" style="color: #ef4444;"></i> by Badar Ahmad</p>
+                <p>&copy; <span id="currentYear"></span> | Badar Ahmad | All Rights Reserved | Portfolio</p>
+                <p>Designed and developed with by Badar Ahmad</p>
             </div>
         </div>
     </footer>
 
-    <!-- Theme Toggle -->
-    <div class="theme-toggle">
-        <i class="fas fa-moon"></i>
-    </div>
+    <!-- ===== BACK TO TOP ===== -->
+    <a href="#home" class="back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </a>
 
-    <!-- Scripts -->
+    <!-- ===== SCRIPTS ===== -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>
-        // Initialize AOS
-        AOS.init({
-            duration: 800,
-            offset: 100,
-            once: true
-        });
-
-        // Mobile Menu Toggle
-        document.querySelector('.menu-toggle').addEventListener('click', function() {
-            document.querySelector('.nav-links').classList.toggle('active');
-        });
-
-        // Smooth Scrolling
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                
-                const targetId = this.getAttribute('href');
-                if(targetId === '#') return;
-                
-                const targetElement = document.querySelector(targetId);
-                if(targetElement) {
-                    window.scrollTo({
-                        top: targetElement.offsetTop - 80,
-                        behavior: 'smooth'
-                    });
-                    
-                    // Close mobile menu if open
-                    document.querySelector('.nav-links').classList.remove('active');
-                }
-            });
-        });
-
-        // Contact Form Submission with Formspree
-        document.getElementById('contactForm').addEventListener('submit', async function(e) {
-            e.preventDefault();
-            
-            const form = e.target;
-            const formData = new FormData(form);
-            const submitBtn = form.querySelector('button[type="submit"]');
-            const statusEl = document.getElementById('formStatus');
-            
-            // Change button text to indicate loading
-            submitBtn.textContent = 'Sending...';
-            submitBtn.disabled = true;
-            
-            try {
-                const response = await fetch(form.action, {
-                    method: 'POST',
-                    body: formData,
-                    headers: {
-                        'Accept': 'application/json'
-                    }
-                });
-                
-                if (response.ok) {
-                    statusEl.textContent = 'Thank you for your message! I will get back to you soon.';
-                    statusEl.className = 'form-status success';
-                    form.reset();
-                } else {
-                    throw new Error('Form submission failed');
-                }
-            } catch (error) {
-                statusEl.textContent = 'Oops! There was a problem sending your message. Please try again or email me directly.';
-                statusEl.className = 'form-status error';
-            } finally {
-                submitBtn.textContent = 'Send Message';
-                submitBtn.disabled = false;
-                
-                // Hide status message after 5 seconds
-                setTimeout(() => {
-                    statusEl.style.display = 'none';
-                }, 5000);
-            }
-        });
-
-        // Theme Toggle
-        const themeToggle = document.querySelector('.theme-toggle');
-        const themeIcon = themeToggle.querySelector('i');
-        
-        themeToggle.addEventListener('click', function() {
-            document.body.classList.toggle('light-theme');
-            
-            if(document.body.classList.contains('light-theme')) {
-                themeIcon.classList.remove('fa-moon');
-                themeIcon.classList.add('fa-sun');
-            } else {
-                themeIcon.classList.remove('fa-sun');
-                themeIcon.classList.add('fa-moon');
-            }
-        });
-
-        // Add light theme styles
-        const style = document.createElement('style');
-        style.textContent = `
-            .light-theme {
-                --dark: #f8fafc;
-                --light: #0f172a;
-                --card-bg: #ffffff;
-                --gray: #475569;
-            }
-            
-            .light-theme header {
-                background-color: rgba(248, 250, 252, 0.95);
-                box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-            }
-            
-            .light-theme .nav-links a {
-                color: var(--light);
-            }
-            
-            .light-theme .project-card,
-            .light-theme .timeline-content,
-            .light-theme .contact-form {
-                box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-            }
-        `;
-        document.head.appendChild(style);
-    </script>
+    <script src="js/script.js"></script>
+    <script src="js/form-handler.js"></script>
 </body>
-
 </html>
-
-
-
-
-
-
-
-
-
-
-

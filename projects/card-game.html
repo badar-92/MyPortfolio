@@ -1,0 +1,847 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Card Game | Badar Ahmad</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="../images/projects/card-hero.png">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        /* ===== PROJECT DETAIL PAGE ===== */
+        .project-detail {
+            padding-top: 12rem;
+        }
+
+        .project-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .project-hero-img {
+            width: 100%;
+            max-width: 350px;
+            border-radius: var(--border-radius);
+            margin: 1.5rem auto;
+            display: block;
+            box-shadow: 0 10px 20px var(--shadow-color);
+        }
+
+        .project-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .content-section {
+            margin-bottom: 4rem;
+        }
+
+        .content-section h3 {
+            font-size: 2.4rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary-color);
+        }
+
+        .content-section h4 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: var(--text-color);
+        }
+
+        .content-section p {
+            font-size: 1.6rem;
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+
+        .feature-list {
+            list-style: none;
+        }
+
+        .feature-list li {
+            display: flex;
+            align-items: start;
+            gap: 1.2rem;
+            margin-bottom: 1.2rem;
+            font-size: 1.5rem;
+            color: var(--text-muted);
+        }
+
+        .feature-list li i {
+            color: var(--primary-color);
+            margin-top: 0.3rem;
+            min-width: 18px;
+        }
+
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+            margin: 1.5rem 0;
+        }
+
+        .tech-stack span {
+            background: rgba(37, 99, 235, 0.1);
+            color: var(--primary-color);
+            padding: 0.6rem 1.2rem;
+            border-radius: 20px;
+            font-size: 1.3rem;
+            border: 1px solid rgba(37, 99, 235, 0.2);
+            transition: var(--transition);
+        }
+
+        .tech-stack span:hover {
+            background: var(--primary-color);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .project-links-row {
+            display: flex;
+            gap: 1.5rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+
+        /* Feature Cards */
+        .feature-card {
+            background: var(--card-bg);
+            padding: 1.5rem;
+            border-radius: var(--border-radius);
+            border: 1px solid var(--border-color);
+            transition: var(--transition);
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px var(--shadow-color);
+        }
+        
+        .feature-card h4 {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            margin-bottom: 0.8rem;
+            color: var(--primary-color);
+        }
+        
+        .feature-card ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .feature-card li {
+            padding: 0.4rem 0;
+            font-size: 1.3rem;
+            color: var(--text-muted);
+            position: relative;
+            padding-left: 1.2rem;
+        }
+        
+        .feature-card li:before {
+            content: "•";
+            color: var(--primary-color);
+            position: absolute;
+            left: 0;
+        }
+
+        /* Game Rules Card */
+        .rules-card {
+            background: linear-gradient(135deg, #fff3e0 0%, #ffecb3 100%);
+            border: 2px solid #ff9800;
+            border-radius: var(--border-radius);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .rules-card h4 {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            color: #ff9800;
+            margin-bottom: 1.2rem;
+            font-size: 1.6rem;
+        }
+        
+        .rule-item {
+            margin-bottom: 1rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+        
+        .rule-item:before {
+            content: "♠";
+            position: absolute;
+            left: 0;
+            color: #ff9800;
+            font-weight: bold;
+        }
+        
+        .rule-text {
+            font-size: 1.4rem;
+            color: #5d4037;
+            line-height: 1.5;
+        }
+
+        /* Demo Card */
+        .demo-card {
+            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+            border: 2px solid var(--primary-color);
+            border-radius: var(--border-radius);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .demo-card h4 {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            color: var(--primary-color);
+            margin-bottom: 1.2rem;
+            font-size: 1.6rem;
+        }
+        
+        .demo-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 0.8rem;
+            padding: 0.8rem;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 8px;
+            border-left: 4px solid var(--primary-color);
+        }
+        
+        .demo-label {
+            font-weight: 600;
+            min-width: 100px;
+            color: #2d3748;
+            font-size: 1.4rem;
+        }
+        
+        .demo-value {
+            font-family: 'Courier New', monospace;
+            background: #f8f9fa;
+            padding: 0.4rem 0.8rem;
+            border-radius: 4px;
+            border: 1px solid #dee2e6;
+            color: #212529;
+            font-size: 1.3rem;
+            font-weight: 500;
+            word-break: break-all;
+        }
+
+        /* Code Snippet */
+        .code-snippet {
+            background: #1e1e1e;
+            color: #d4d4d4;
+            border-radius: var(--border-radius);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            font-family: 'Courier New', monospace;
+            font-size: 1.3rem;
+            line-height: 1.6;
+            overflow-x: auto;
+        }
+        
+        .code-keyword { color: #569cd6; }
+        .code-string { color: #ce9178; }
+        .code-comment { color: #6a9955; }
+        .code-function { color: #dcdcaa; }
+        .code-number { color: #b5cea8; }
+
+        /* Game Terms */
+        .terms-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+        
+        .term-card {
+            background: var(--card-bg);
+            padding: 1.5rem;
+            border-radius: var(--border-radius);
+            border: 1px solid var(--border-color);
+        }
+        
+        .term-title {
+            font-size: 1.6rem;
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: 0.8rem;
+        }
+        
+        .term-desc {
+            font-size: 1.3rem;
+            color: var(--text-muted);
+            line-height: 1.5;
+        }
+
+        /* Controls Section */
+        .controls-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+        
+        .control-item {
+            background: var(--card-bg);
+            padding: 1rem;
+            border-radius: var(--border-radius);
+            border: 1px solid var(--border-color);
+            text-align: center;
+        }
+        
+        .control-key {
+            display: inline-block;
+            background: #2d3748;
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 4px;
+            font-family: monospace;
+            font-size: 1.4rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .control-action {
+            font-size: 1.3rem;
+            color: var(--text-muted);
+        }
+
+        @media (max-width: 768px) {
+            .project-detail {
+                padding-top: 8rem;
+            }
+            
+            .content-section h3 {
+                font-size: 2rem;
+            }
+            
+            .project-links-row {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            
+            .project-links-row .btn {
+                width: 100%;
+                justify-content: center;
+                padding: 0.8rem 1.5rem;
+                font-size: 1.4rem;
+            }
+            
+            .terms-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .project-hero-img {
+                max-width: 250px;
+                margin: 1rem auto;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .project-hero-img {
+                max-width: 200px;
+            }
+            
+            .project-header h1 {
+                font-size: 2.2rem;
+            }
+            
+            .section-subtitle {
+                font-size: 1.4rem;
+            }
+            
+            .demo-item {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.4rem;
+            }
+            
+            .demo-label {
+                min-width: auto;
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- ===== HEADER ===== -->
+    <header class="header">
+        <div class="container">
+            <nav class="nav">
+                <a href="../index.html" class="logo">Badar<span>Ahmad</span></a>
+                
+                <div class="nav-links" id="navLinks">
+                    <a href="../index.html#home" class="nav-link">Home</a>
+                    <a href="../index.html#projects" class="nav-link active">Projects</a>
+                    <a href="../index.html#contact" class="nav-link">Contact</a>
+                </div>
+                
+                <div class="nav-controls">
+                    <button id="themeToggle" class="theme-toggle">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                    <button id="menuToggle" class="menu-toggle">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- ===== PROJECT DETAIL ===== -->
+    <section class="project-detail" style="padding-top: 12rem;">
+        <div class="container">
+            <div class="project-header" data-aos="fade-up">
+                <h1 class="section-title">Card <span>Game</span></h1>
+                <p class="section-subtitle">Bhabhi/Thulla Card Game with Strict Follow-Suit Rules, AI Opponents, and Animated Gameplay</p>
+                
+                <img src="../images/projects/card-hero.png" alt="Card Game" class="project-hero-img" data-aos="fade-up" data-aos-delay="200">
+            </div>
+            
+            <div class="project-content">
+                <!-- Project Overview -->
+                <div class="content-section" data-aos="fade-up">
+                    <h3>Project Overview</h3>
+                    <p>
+                        A traditional Pakistani card game "Bhabhi/Thulla" implemented in Python with Pygame. 
+                        This digital version features strict follow-suit enforcement, animated card movements, 
+                        intelligent CPU opponents, and complete game rule implementation with visual and audio feedback.
+                    </p>
+                    
+                    <div class="demo-card" data-aos="fade-up" data-aos-delay="200">
+                        <h4><i class="fas fa-gamepad"></i> Game Access</h4>
+                        <div class="demo-item">
+                            <span class="demo-label">GitHub:</span>
+                            <span class="demo-value">https://github.com/badar-92/card-game</span>
+                        </div>
+                        <div class="demo-item">
+                            <span class="demo-label">Online Play:</span>
+                            <span class="demo-value">https://replit.com/@70154287/card-game</span>
+                        </div>
+                        <p style="margin-top: 1rem; font-size: 1.3rem; color: #4a5568; font-weight: 500;">
+                            <i class="fas fa-info-circle"></i> Click the "Run" button on Replit to start playing. Game begins with Ace of Spades.
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- Live Links -->
+                <div class="content-section" data-aos="fade-up">
+                    <h3>Project Links</h3>
+                    <div class="project-links-row">
+                        <a href="https://replit.com/@70154287/card-game" target="_blank" class="btn btn-primary">
+                            <i class="fas fa-play-circle"></i> Play Online
+                        </a>
+                        <a href="https://github.com/badar-92/card-game" target="_blank" class="btn btn-secondary">
+                            <i class="fab fa-github"></i> View Source Code
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Game Rules -->
+                <div class="content-section" data-aos="fade-up">
+                    <h3>Game Rules (Bhabhi/Thulla)</h3>
+                    
+                    <div class="rules-card">
+                        <h4><i class="fas fa-book"></i> Core Rules</h4>
+                        <div class="rule-item">
+                            <div class="rule-text"><strong>Follow Suit:</strong> Players must play the same suit as led if they have it</div>
+                        </div>
+                        <div class="rule-item">
+                            <div class="rule-text"><strong>Tochoo/Thulla:</strong> If player cannot follow suit, they may play any card</div>
+                        </div>
+                        <div class="rule-item">
+                            <div class="rule-text"><strong>Trick Resolution:</strong> Highest card of led suit wins if all follow suit</div>
+                        </div>
+                        <div class="rule-item">
+                            <div class="rule-text"><strong>Tochoo Penalty:</strong> If someone cannot follow suit, highest led suit collects all cards</div>
+                        </div>
+                        <div class="rule-item">
+                            <div class="rule-text"><strong>First Move:</strong> Game must start with Ace of Spades</div>
+                        </div>
+                        <div class="rule-item">
+                            <div class="rule-text"><strong>Win Condition:</strong> First to empty hand wins. Last player loses (Bhabhi/Thulla)</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Game Terms -->
+                <div class="content-section" data-aos="fade-up">
+                    <h3>Game Terminology</h3>
+                    
+                    <div class="terms-grid">
+                        <div class="term-card">
+                            <div class="term-title">Bhabhi</div>
+                            <div class="term-desc">The winner/loser title for the last remaining player with cards</div>
+                        </div>
+                        <div class="term-card">
+                            <div class="term-title">Thulla</div>
+                            <div class="term-desc">Alternative name for the game, referring to the penalty system</div>
+                        </div>
+                        <div class="term-card">
+                            <div class="term-title">Tochoo</div>
+                            <div class="term-desc">When a player cannot follow suit and plays a different suit</div>
+                        </div>
+                        <div class="term-card">
+                            <div class="term-title">Trick</div>
+                            <div class="term-desc">A round of cards where each player plays one card</div>
+                        </div>
+                        <div class="term-card">
+                            <div class="term-title">Follow Suit</div>
+                            <div class="term-desc">Mandatory rule: play same suit as first card in trick if possible</div>
+                        </div>
+                        <div class="term-card">
+                            <div class="term-title">Suit Avoidance</div>
+                            <div class="term-desc">CPU strategy to avoid picking up cards of same suit consecutively</div>
+                        </term-card>
+                    </div>
+                </div>
+                
+                <!-- The Challenge -->
+                <div class="content-section" data-aos="fade-up">
+                    <h3>The Challenge</h3>
+                    <p>
+                        Implementing a traditional card game with complex rules into a digital format presented several challenges:
+                    </p>
+                    <ul class="feature-list">
+                        <li><i class="fas fa-exclamation-circle"></i> <span>Strict follow-suit enforcement with real-time validation</span></li>
+                        <li><i class="fas fa-exclamation-circle"></i> <span>Complex trick resolution logic (normal vs tochoo)</span></li>
+                        <li><i class="fas fa-exclamation-circle"></i> <span>Intelligent CPU opponent AI with strategic card selection</span></li>
+                        <li><i class="fas fa-exclamation-circle"></i> <span>Smooth card animations and visual feedback</span></li>
+                        <li><i class="fas fa-exclamation-circle"></i> <span>Handling multiple game states and transitions</span></li>
+                        <li><i class="fas fa-exclamation-circle"></i> <span>Implementing traditional game rules accurately</span></li>
+                    </ul>
+                </div>
+                
+                <!-- The Solution -->
+                <div class="content-section" data-aos="fade-up">
+                    <h3>The Solution</h3>
+                    <p>
+                        Developed a complete card game engine with object-oriented design, featuring:
+                    </p>
+                    <ul class="feature-list">
+                        <li><i class="fas fa-check-circle"></i> <span><strong>Rule Enforcement:</strong> Strict follow-suit with visual indicators for playable cards</span></li>
+                        <li><i class="fas fa-check-circle"></i> <span><strong>Smart CPU AI:</strong> Strategic card selection with suit avoidance</span></li>
+                        <li><i class="fas fa-check-circle"></i> <span><strong>Animated Gameplay:</strong> Smooth card movements with easing functions</span></li>
+                        <li><i class="fas fa-check-circle"></i> <span><strong>Sound Effects:</strong> Audio feedback for card plays and tochoo events</span></li>
+                        <li><i class="fas fa-check-circle"></i> <span><strong>State Management:</strong> Comprehensive game state handling</span></li>
+                        <li><i class="fas fa-check-circle"></i> <span><strong>Responsive UI:</strong> Visual feedback for game events and warnings</span></li>
+                    </ul>
+                </div>
+                
+                <!-- Key Features -->
+                <div class="content-section" data-aos="fade-up">
+                    <h3>Key Features</h3>
+                    
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-top: 1.5rem;">
+                        <div class="feature-card">
+                            <h4><i class="fas fa-user-friends"></i> Player Management</h4>
+                            <ul>
+                                <li>3-6 players (Human/CPU mix)</li>
+                                <li>Real-time player switching</li>
+                                <li>Finish order tracking</li>
+                                <li>Active/inactive state management</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="feature-card">
+                            <h4><i class="fas fa-robot"></i> CPU Intelligence</h4>
+                            <ul>
+                                <li>Follow-suit enforcement</li>
+                                <li>Suit avoidance strategy</li>
+                                <li>Smart card selection</li>
+                                <li>Tochoo situation handling</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="feature-card">
+                            <h4><i class="fas fa-gamepad"></i> Game Mechanics</h4>
+                            <ul>
+                                <li>Strict rule enforcement</li>
+                                <li>Tochoo detection & resolution</li>
+                                <li>Trick winner calculation</li>
+                                <li>Card pickup/discard logic</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="feature-card">
+                            <h4><i class="fas fa-paint-brush"></i> Visual Effects</h4>
+                            <ul>
+                                <li>Animated card movements</li>
+                                <li>Dimmed unplayable cards</li>
+                                <li>Trick display visualization</li>
+                                <li>Player highlight indicators</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="feature-card">
+                            <h4><i class="fas fa-sliders-h"></i> Game Controls</h4>
+                            <ul>
+                                <li>Pause/Resume functionality</li>
+                                <li>Restart game option</li>
+                                <li>Scrollable hand interface</li>
+                                <li>Click-to-play card selection</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="feature-card">
+                            <h4><i class="fas fa-volume-up"></i> Audio & Feedback</h4>
+                            <ul>
+                                <li>Card play sound effects</li>
+                                <li>Tochoo event sounds</li>
+                                <li>Visual warning messages</li>
+                                <li>Game state notifications</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Controls -->
+                <div class="content-section" data-aos="fade-up">
+                    <h3>Game Controls</h3>
+                    <p>
+                        Intuitive controls for seamless gameplay experience:
+                    </p>
+                    
+                    <div class="controls-grid">
+                        <div class="control-item">
+                            <div class="control-key">MOUSE</div>
+                            <div class="control-action">Click cards to play</div>
+                        </div>
+                        <div class="control-item">
+                            <div class="control-key">MOUSE WHEEL</div>
+                            <div class="control-action">Scroll hand view</div>
+                        </div>
+                        <div class="control-item">
+                            <div class="control-key">ARROW KEYS</div>
+                            <div class="control-action">Scroll hand view</div>
+                        </div>
+                        <div class="control-item">
+                            <div class="control-key">P</div>
+                            <div class="control-action">Pause/Resume game</div>
+                        </div>
+                        <div class="control-item">
+                            <div class="control-key">R</div>
+                            <div class="control-action">Restart game</div>
+                        </div>
+                    </div>
+                    
+                    <p style="margin-top: 1.5rem; font-style: italic; color: #4a5568; font-size: 1.3rem;">
+                        <i class="fas fa-info-circle"></i> Unplayable cards are dimmed when you must follow suit. 
+                        Clicking them shows a warning message. CPU players automatically follow all rules.
+                    </p>
+                </div>
+                
+                <!-- Technical Implementation -->
+                <div class="content-section" data-aos="fade-up">
+                    <h3>Technical Implementation</h3>
+                    <p>
+                        Built with Python and Pygame using object-oriented design patterns for maintainable 
+                        and extensible game architecture.
+                    </p>
+                    
+                    <div class="tech-stack">
+                        <span>Python 3.8+</span>
+                        <span>Pygame</span>
+                        <span>Object-Oriented Design</span>
+                        <span>Math Module</span>
+                        <span>Random Module</span>
+                        <span>Time Module</span>
+                        <span>Event-Driven Architecture</span>
+                    </div>
+                    
+                    <div style="margin-top: 2rem;">
+                        <h4>Class Architecture</h4>
+                        <p>Modular class structure for clean separation of concerns:</p>
+                        <ul class="feature-list">
+                            <li><i class="fas fa-code"></i> <span><strong>Game Class:</strong> Main game controller and state manager</span></li>
+                            <li><i class="fas fa-code"></i> <span><strong>Card Class:</strong> Card representation with suit and rank</span></li>
+                            <li><i class="fas fa-code"></i> <span><strong>Player Class:</strong> Player state and hand management</span></li>
+                            <li><i class="fas fa-code"></i> <span><strong>Button Class:</strong> Interactive UI elements</span></li>
+                            <li><i class="fas fa-code"></i> <span><strong>MovingCard Class:</strong> Animation controller for card movements</span></li>
+                            <li><i class="fas fa-code"></i> <span><strong>ScrollableHand Class:</strong> Hand interface with scrolling</span></li>
+                        </ul>
+                    </div>
+                    
+                    <div style="margin-top: 2rem;">
+                        <h4>Code Structure</h4>
+                        <div class="code-snippet">
+<pre><span class="code-keyword">class</span> <span class="code-function">Card</span>:
+    <span class="code-keyword">def</span> <span class="code-function">__init__</span>(<span class="code-keyword">self</span>, rank, suit):
+        <span class="code-keyword">self</span>.rank = rank
+        <span class="code-keyword">self</span>.suit = suit
+        <span class="code-keyword">self</span>.value = RANK_VALUE[rank]
+
+    <span class="code-keyword">def</span> <span class="code-function">draw</span>(<span class="code-keyword">self</span>, surf, x, y, face=<span class="code-keyword">True</span>, disabled=<span class="code-keyword">False</span>):
+        <span class="code-comment"># Draw card with dim overlay if disabled</span>
+        rect = pygame.Rect(x, y, CARD_W, CARD_H)
+        pygame.draw.rect(surf, WHITE <span class="code-keyword">if</span> face <span class="code-keyword">else</span> DARK_GRAY, rect, border_radius=<span class="code-number">6</span>)
+        
+        <span class="code-keyword">if</span> face:
+            color = RED <span class="code-keyword">if</span> <span class="code-keyword">self</span>.suit <span class="code-keyword">in</span> [<span class="code-string">'♥'</span>, <span class="code-string">'♦'</span>] <span class="code-keyword">else</span> BLACK
+            font = pygame.font.SysFont(<span class="code-string">'arial'</span>, <span class="code-number">20</span>, bold=<span class="code-keyword">True</span>)
+            rsurf = font.render(<span class="code-keyword">self</span>.rank, <span class="code-keyword">True</span>, color)
+            surf.blit(rsurf, (x+<span class="code-number">6</span>, y+<span class="code-number">6</span>))
+            
+        <span class="code-keyword">if</span> disabled:  <span class="code-comment"># Dim overlay for unplayable cards</span>
+            overlay = pygame.Surface((CARD_W, CARD_H), pygame.SRCALPHA)
+            overlay.fill((<span class="code-number">80</span>, <span class="code-number">80</span>, <span class="code-number">80</span>, <span class="code-number">140</span>))
+            surf.blit(overlay, (x, y))</pre>
+                        </div>
+                    </div>
+                    
+                    <div style="margin-top: 2rem;">
+                        <h4>Rule Implementation</h4>
+                        <ul class="feature-list">
+                            <li><i class="fas fa-check-double"></i> <span><strong>Follow-Suit Check:</strong> Validates if player has required suit</span></li>
+                            <li><i class="fas fa-check-double"></i> <span><strong>Playability Validation:</strong> Dims unplayable cards in UI</span></li>
+                            <li><i class="fas fa-check-double"></i> <span><strong>Trick Resolution:</strong> Determines winner based on rules</span></li>
+                            <li><i class="fas fa-check-double"></i> <span><strong>Tochoo Detection:</strong> Identifies when suit cannot be followed</span></li>
+                            <li><i class="fas fa-check-double"></i> <span><strong>First Move Enforcement:</strong> Forces Ace of Spades start</span></li>
+                            <li><i class="fas fa-check-double"></i> <span><strong>Win Condition:</strong> Tracks player elimination and ranking</span></li>
+                        </ul>
+                    </div>
+                    
+                    <div style="margin-top: 2rem;">
+                        <h4>Performance Optimizations</h4>
+                        <ul class="feature-list">
+                            <li><i class="fas fa-bolt"></i> <span><strong>Efficient Rendering:</strong> Only redraw changed game elements</span></li>
+                            <li><i class="fas fa-bolt"></i> <span><strong>Animation System:</strong> Smooth card movements with easing</span></li>
+                            <li><i class="fas fa-bolt"></i> <span><strong>Event Handling:</strong> Responsive input with pygame events</span></li>
+                            <li><i class="fas fa-bolt"></i> <span><strong>Memory Management:</strong> Proper cleanup of game objects</span></li>
+                            <li><i class="fas fa-bolt"></i> <span><strong>State Management:</strong> Efficient game state transitions</span></li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Project Impact -->
+                <div class="content-section" data-aos="fade-up">
+                    <h3>Project Highlights</h3>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; margin-top: 1.5rem;">
+                        <div class="feature-card" style="text-align: center;">
+                            <div style="font-size: 3rem; color: var(--primary-color); margin-bottom: 1rem;">
+                                <i class="fas fa-gavel"></i>
+                            </div>
+                            <div style="font-size: 1.4rem; font-weight: 600; color: var(--text-color); margin-bottom: 0.5rem;">
+                                Strict Rule Enforcement
+                            </div>
+                            <div style="font-size: 1.3rem; color: var(--text-muted);">
+                                Complete implementation of traditional rules
+                            </div>
+                        </div>
+                        <div class="feature-card" style="text-align: center;">
+                            <div style="font-size: 3rem; color: var(--primary-color); margin-bottom: 1rem;">
+                                <i class="fas fa-robot"></i>
+                            </div>
+                            <div style="font-size: 1.4rem; font-weight: 600; color: var(--text-color); margin-bottom: 0.5rem;">
+                                Intelligent CPU AI
+                            </div>
+                            <div style="font-size: 1.3rem; color: var(--text-muted);">
+                                Strategic opponents with suit avoidance
+                            </div>
+                        </div>
+                        <div class="feature-card" style="text-align: center;">
+                            <div style="font-size: 3rem; color: var(--primary-color); margin-bottom: 1rem;">
+                                <i class="fas fa-film"></i>
+                            </div>
+                            <div style="font-size: 1.4rem; font-weight: 600; color: var(--text-color); margin-bottom: 0.5rem;">
+                                Smooth Animations
+                            </div>
+                            <div style="font-size: 1.3rem; color: var(--text-muted);">
+                                Eased card movements with visual feedback
+                            </div>
+                        </div>
+                        <div class="feature-card" style="text-align: center;">
+                            <div style="font-size: 3rem; color: var(--primary-color); margin-bottom: 1rem;">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <div style="font-size: 1.4rem; font-weight: 600; color: var(--text-color); margin-bottom: 0.5rem;">
+                                3-6 Player Support
+                            </div>
+                            <div style="font-size: 1.3rem; color: var(--text-muted);">
+                                Flexible player count with Human/CPU mix
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <p style="margin-top: 1.5rem; color: var(--text-muted);">
+                        This card game project demonstrates advanced Python programming skills, particularly in 
+                        game development, AI implementation, and user interface design. It successfully translates 
+                        a complex traditional card game into an engaging digital experience while maintaining 
+                        all the strategic depth and rule complexity of the original game.
+                    </p>
+                </div>
+                
+                <!-- Project Links -->
+                <div class="content-section" data-aos="fade-up">
+                    <h3>Project Links</h3>
+                    <div class="project-links-row">
+                        <a href="https://replit.com/@70154287/card-game" target="_blank" class="btn btn-primary">
+                            <i class="fas fa-play-circle"></i> Play Online
+                        </a>
+                        <a href="https://github.com/badar-92/card-game" target="_blank" class="btn btn-secondary">
+                            <i class="fab fa-github"></i> View Source Code
+                        </a>
+                        <a href="../index.html#projects" class="btn btn-outline">
+                            <i class="fas fa-arrow-left"></i> Back to Portfolio
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <p>&copy; <span id="currentYear"></span> | Badar Ahmad | All Rights Reserved | Card Game</p>
+                <p>Designed and developed with by Badar Ahmad</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ===== BACK TO TOP ===== -->
+    <a href="#" class="back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+
+    <!-- ===== SCRIPTS ===== -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="../js/script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize AOS
+            if (typeof AOS !== 'undefined') {
+                AOS.init({
+                    duration: 1000,
+                    once: true,
+                    offset: 100
+                });
+            }
+
+            // Set current year in footer
+            const currentYearElement = document.getElementById('currentYear');
+            if (currentYearElement) {
+                currentYearElement.textContent = new Date().getFullYear();
+            }
+        });
+    </script>
+</body>
+</html>
