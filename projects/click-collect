@@ -1,0 +1,951 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Click & Collect | Badar Ahmad</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="../images/projects/clickcollect-favicon.ico">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        /* ===== PROJECT DETAIL PAGE (same as template, kept intact) ===== */
+        .project-detail {
+            padding-top: 12rem;
+        }
+
+        .project-header {
+            text-align: center;
+            margin-bottom: 5rem;
+        }
+
+        .project-hero-img {
+            width: 100%;
+            max-width: 350px;
+            border-radius: var(--border-radius);
+            margin: 1.5rem auto;
+            display: block;
+            box-shadow: 0 10px 20px var(--shadow-color);
+        }
+
+        .project-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .content-section {
+            margin-bottom: 5rem;
+        }
+
+        .content-section h3 {
+            font-size: 2.8rem;
+            margin-bottom: 2rem;
+            color: var(--primary-color);
+        }
+
+        .content-section h4 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            color: var(--text-color);
+        }
+
+        .content-section p {
+            font-size: 1.6rem;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+        }
+
+        .feature-list {
+            list-style: none;
+        }
+
+        .feature-list li {
+            display: flex;
+            align-items: start;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+            font-size: 1.6rem;
+            color: var(--text-muted);
+        }
+
+        .feature-list li i {
+            color: var(--primary-color);
+            margin-top: 0.3rem;
+            min-width: 20px;
+        }
+
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+
+        .tech-stack span {
+            background: rgba(37, 99, 235, 0.1);
+            color: var(--primary-color);
+            padding: 0.8rem 1.5rem;
+            border-radius: 20px;
+            font-size: 1.4rem;
+            border: 1px solid rgba(37, 99, 235, 0.2);
+            transition: var(--transition);
+        }
+
+        .tech-stack span:hover {
+            background: var(--primary-color);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .project-links-row {
+            display: flex;
+            gap: 2rem;
+            margin-top: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .feature-card {
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            border: 1px solid var(--border-color);
+            transition: var(--transition);
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px var(--shadow-color);
+        }
+        
+        .feature-card h4 {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+        
+        .feature-card ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .feature-card li {
+            padding: 0.5rem 0;
+            font-size: 1.4rem;
+            color: var(--text-muted);
+            position: relative;
+            padding-left: 1.5rem;
+        }
+        
+        .feature-card li:before {
+            content: "•";
+            color: var(--primary-color);
+            position: absolute;
+            left: 0;
+        }
+
+        .live-links-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+        
+        .live-link {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1.5rem;
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            border: 1px solid var(--border-color);
+            text-decoration: none;
+            color: var(--text-color);
+            transition: var(--transition);
+        }
+        
+        .live-link:hover {
+            background: var(--primary-color);
+            color: white;
+            transform: translateY(-3px);
+        }
+        
+        .live-link i {
+            font-size: 1.8rem;
+        }
+        
+        .live-link span {
+            font-size: 1.4rem;
+            font-weight: 500;
+        }
+
+        .impact-card {
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            border: 1px solid var(--border-color);
+            text-align: center;
+            transition: var(--transition);
+        }
+        
+        .impact-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px var(--shadow-color);
+        }
+        
+        .impact-number {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+        
+        .impact-text {
+            font-size: 1.4rem;
+            color: var(--text-muted);
+            line-height: 1.4;
+        }
+
+        /* ===== CAROUSEL STYLES (identical to template) ===== */
+        .carousel-section {
+            margin: 5rem 0;
+        }
+
+        .carousel-title {
+            font-size: 2.8rem;
+            margin-bottom: 3rem;
+            text-align: center;
+            color: var(--primary-color);
+        }
+
+        .carousel-subtitle {
+            text-align: center;
+            color: var(--text-muted);
+            margin-bottom: 3rem;
+            font-size: 1.6rem;
+        }
+
+        .mobile-carousel-wrapper {
+            margin-bottom: 6rem;
+        }
+        
+        .mobile-carousel-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 2rem;
+            margin: 2rem 0;
+            position: relative;
+        }
+
+        .phone-mockup {
+            width: 280px;
+            height: 560px;
+            background: #111;
+            border-radius: 30px;
+            position: relative;
+            padding: 10px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+            border: 8px solid #222;
+        }
+
+        .phone-notch {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 120px;
+            height: 20px;
+            background: #111;
+            border-bottom-left-radius: 10px;
+            border-bottom-right-radius: 10px;
+            z-index: 10;
+        }
+
+        .mobile-screen {
+            width: 100%;
+            height: 100%;
+            border-radius: 20px;
+            overflow: hidden;
+            position: relative;
+            background: #f5f5f5;
+        }
+
+        .mobile-screen img {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        .mobile-screen img.active {
+            opacity: 1;
+        }
+
+        .desktop-carousel-wrapper {
+            margin-top: 6rem;
+        }
+        
+        .desktop-carousel-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 3rem;
+            margin: 2rem 0;
+            position: relative;
+        }
+
+        .desktop-mockup {
+            width: 800px;
+            max-width: 100%;
+            height: 500px;
+            background: #e0e0e0;
+            border-radius: 15px;
+            position: relative;
+            padding: 12px;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.2);
+            border: 1px solid #ccc;
+        }
+
+        .desktop-screen-topbar {
+            height: 35px;
+            background: #f1f1f1;
+            border-top-left-radius: 8px;
+            border-top-right-radius: 8px;
+            display: flex;
+            align-items: center;
+            padding: 0 15px;
+            gap: 10px;
+            margin-bottom: 8px;
+        }
+
+        .desktop-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+
+        .desktop-dot.red { background: #ff5f57; }
+        .desktop-dot.yellow { background: #ffbd2e; }
+        .desktop-dot.green { background: #28ca42; }
+
+        .desktop-screen {
+            width: 100%;
+            height: calc(100% - 43px);
+            border-radius: 8px;
+            overflow: hidden;
+            position: relative;
+            background: white;
+        }
+
+        .desktop-screen img {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            background: white;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        .desktop-screen img.active {
+            opacity: 1;
+        }
+
+        .nav-btn {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--card-bg);
+            border: 2px solid var(--border-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 2rem;
+            color: var(--primary-color);
+            transition: all 0.3s ease;
+            z-index: 2;
+        }
+
+        .nav-btn:hover {
+            background: var(--primary-color);
+            color: white;
+            transform: scale(1.1);
+        }
+
+        .carousel-indicators {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .indicator {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--border-color);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .indicator.active {
+            background: var(--primary-color);
+            transform: scale(1.2);
+        }
+
+        .indicator:hover {
+            background: var(--primary-color);
+        }
+
+        .carousel-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        
+        .carousel-header h4 {
+            display: inline-flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem 2rem;
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            border: 1px solid var(--border-color);
+            font-size: 1.8rem;
+            color: var(--text-color);
+        }
+
+        @media (max-width: 992px) {
+            .desktop-mockup {
+                width: 100%;
+                max-width: 600px;
+                height: 400px;
+                margin: 0 auto;
+            }
+            .phone-mockup {
+                width: 250px;
+                height: 500px;
+                margin: 0 auto;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .project-detail { padding-top: 8rem; }
+            .content-section h3 { font-size: 2.4rem; }
+            .project-links-row { flex-direction: column; align-items: stretch; }
+            .project-links-row .btn { width: 100%; justify-content: center; }
+            .carousel-title { font-size: 2.2rem; }
+            .desktop-mockup { height: 350px; }
+            .phone-mockup { width: 220px; height: 440px; }
+            .nav-btn { width: 40px; height: 40px; font-size: 1.6rem; }
+            .live-links-grid { grid-template-columns: 1fr; }
+            .feature-card { margin-bottom: 1rem; }
+            .mobile-carousel-wrapper { margin-bottom: 4rem; }
+            .desktop-carousel-wrapper { margin-top: 4rem; }
+        }
+
+        @media (max-width: 480px) {
+            .desktop-mockup { height: 250px; }
+            .phone-mockup { width: 200px; height: 400px; }
+            .mobile-carousel-container, .desktop-carousel-container { gap: 1rem; }
+        }
+    </style>
+</head>
+<body>
+    <!-- ===== HEADER ===== -->
+    <header class="header">
+        <div class="container">
+            <nav class="nav">
+                <a href="../index.html" class="logo">Badar<span>Ahmad</span></a>
+                
+                <div class="nav-links" id="navLinks">
+                    <a href="../index.html#home" class="nav-link">Home</a>
+                    <a href="../index.html#projects" class="nav-link active">Projects</a>
+                    <a href="../index.html#contact" class="nav-link">Contact</a>
+                </div>
+                
+                <div class="nav-controls">
+                    <button id="themeToggle" class="theme-toggle">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                    <button id="menuToggle" class="menu-toggle">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- ===== PROJECT DETAIL ===== -->
+    <section class="project-detail" style="padding-top: 12rem;">
+        <div class="container">
+            <div class="project-header" data-aos="fade-up">
+                <h1 class="section-title">Click & <span>Collect</span></h1>
+                <p class="section-subtitle">Product showcase & local pickup platform – list, discover, and collect items seamlessly</p>
+                
+                <!-- Hero image (replace with clickcollect-hero.png) -->
+                <img src="../images/projects/clickcollect-hero.png" alt="Click & Collect Platform" class="project-hero-img" data-aos="fade-up" data-aos-delay="200">
+            </div>
+            
+            <div class="project-content">
+                <!-- Project Overview -->
+                <div class="content-section" data-aos="fade-up">
+                    <h3>Project Overview</h3>
+                    <p>
+                        <strong>Click & Collect</strong> is a full‑featured web application that enables users to browse products, 
+                        submit their own items for sale, and arrange local pickup. Built as a modern alternative to 
+                        classified platforms, it combines an intuitive public interface with a powerful admin panel 
+                        for managing listings, categories, and customer inquiries.
+                    </p>
+                    <p>
+                        <strong>Live Website:</strong> <a href="https://clickncollect.xo.je/clickcollect/public/" target="_blank" style="color: var(--primary-color);">https://clickncollect.xo.je/clickcollect/public/</a>
+                    </p>
+                </div>
+                
+                <!-- The Challenge -->
+                <div class="content-section" data-aos="fade-up">
+                    <h3>The Challenge</h3>
+                    <p>
+                        Local communities and small sellers often struggle with fragmented platforms that are either too complex (e‑commerce) or too limited (social media groups). Key issues included:
+                    </p>
+                    <ul class="feature-list">
+                        <li><i class="fas fa-exclamation-circle"></i> <span>No centralized place to list items for local pickup</span></li>
+                        <li><i class="fas fa-exclamation-circle"></i> <span>Manual product uploads and image handling</span></li>
+                        <li><i class="fas fa-exclamation-circle"></i> <span>Lack of search/filter capabilities for nearby items</span></li>
+                        <li><i class="fas fa-exclamation-circle"></i> <span>Difficulty for admins to moderate listings and messages</span></li>
+                        <li><i class="fas fa-exclamation-circle"></i> <span>No structured category or tag system</span></li>
+                    </ul>
+                </div>
+                
+                <!-- The Solution -->
+                <div class="content-section" data-aos="fade-up">
+                    <h3>The Solution</h3>
+                    <p>
+                        I built a clean, responsive platform with separate public and admin areas. The system empowers users to submit products with images, while administrators have full control over content, categories, and user messages.
+                    </p>
+                    <ul class="feature-list">
+                        <li><i class="fas fa-check-circle"></i> <span><strong>Public product listing</strong> with grid view, search, and category filters</span></li>
+                        <li><i class="fas fa-check-circle"></i> <span><strong>Simple submission form</strong> with image upload (drag & drop, preview)</span></li>
+                        <li><i class="fas fa-check-circle"></i> <span><strong>Admin dashboard</strong> for product/category/message management</span></li>
+                        <li><i class="fas fa-check-circle"></i> <span><strong>Contact page</strong> with message storage and admin notification</span></li>
+                        <li><i class="fas fa-check-circle"></i> <span><strong>Bulk actions</strong> (export, delete) and activity logs</span></li>
+                        <li><i class="fas fa-check-circle"></i> <span><strong>Secure authentication</strong> for admin users with session management</span></li>
+                    </ul>
+                </div>
+                
+                <!-- Key Features -->
+                <div class="content-section" data-aos="fade-up">
+                    <h3>Key Features</h3>
+                    
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 2rem;">
+                        <div class="feature-card">
+                            <h4><i class="fas fa-box-open"></i> Product Management</h4>
+                            <ul>
+                                <li>Submit products with title, description, price, and multiple images</li>
+                                <li>Automatic image resizing and webp conversion for performance</li>
+                                <li>Category assignment and custom tags</li>
+                                <li>Soft delete and restore from admin</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="feature-card">
+                            <h4><i class="fas fa-search"></i> Discovery & Filters</h4>
+                            <ul>
+                                <li>Full‑text search across product titles and descriptions</li>
+                                <li>Filter by category, price range, and date added</li>
+                                <li>Lazy‑loaded product grid for fast browsing</li>
+                                <li>Product detail page with contact seller option</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="feature-card">
+                            <h4><i class="fas fa-image"></i> Image Upload</h4>
+                            <ul>
+                                <li>Drag‑and‑drop or click to upload (multiple files)</li>
+                                <li>Client‑side preview and validation</li>
+                                <li>Secure server‑side handling (type/size checks)</li>
+                                <li>Automatic thumbnail generation</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="feature-card">
+                            <h4><i class="fas fa-lock"></i> Admin Panel</h4>
+                            <ul>
+                                <li>Role‑based login for administrators</li>
+                                <li>CRUD for products, categories, and messages</li>
+                                <li>Export all data to CSV/Excel</li>
+                                <li>Activity logs and system health check</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="feature-card">
+                            <h4><i class="fas fa-envelope"></i> Contact & Messaging</h4>
+                            <ul>
+                                <li>Contact form sends email and stores inquiry in database</li>
+                                <li>Admin can reply and mark messages as read</li>
+                                <li>Spam protection with honeypot and rate limiting</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="feature-card">
+                            <h4><i class="fas fa-cog"></i> Maintenance Mode</h4>
+                            <ul>
+                                <li>Toggle maintenance mode from admin settings</li>
+                                <li>Custom message for public visitors</li>
+                                <li>Whitelist IPs for admin access during maintenance</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Technical Implementation -->
+                <div class="content-section" data-aos="fade-up">
+                    <h3>Technical Implementation</h3>
+                    <p>
+                        Built with a modular PHP architecture following best practices for security and maintainability.
+                    </p>
+                    
+                    <div class="tech-stack">
+                        <span>PHP 8.0+</span>
+                        <span>MySQL 8.0</span>
+                        <span>JavaScript (ES6)</span>
+                        <span>Bootstrap 5</span>
+                        <span>AJAX</span>
+                        <span>jQuery (limited)</span>
+                        <span>PDO</span>
+                        <span>Git</span>
+                        <span>Composer</span>
+                        <span>PHPMailer</span>
+                        <span>WebP conversion</span>
+                        <span>LazyLoad</span>
+                    </div>
+                    
+                    <div style="margin-top: 3rem;">
+                        <h4>Database Architecture</h4>
+                        <p>Relational schema with 10+ tables including:</p>
+                        <ul class="feature-list">
+                            <li><i class="fas fa-database"></i> <span><strong>products</strong> – core product data with image references</span></li>
+                            <li><i class="fas fa-database"></i> <span><strong>categories</strong> – hierarchical category structure</span></li>
+                            <li><i class="fas fa-database"></i> <span><strong>admins</strong> – secure admin credentials (bcrypt hashed)</span></li>
+                            <li><i class="fas fa-database"></i> <span><strong>messages</strong> – contact form submissions</span></li>
+                            <li><i class="fas fa-database"></i> <span><strong>logs</strong> – admin actions and system events</span></li>
+                            <li><i class="fas fa-database"></i> <span><strong>settings</strong> – maintenance mode, site title, etc.</span></li>
+                        </ul>
+                    </div>
+                    
+                    <div style="margin-top: 3rem;">
+                        <h4>Security & Performance</h4>
+                        <ul class="feature-list">
+                            <li><i class="fas fa-shield-alt"></i> <span><strong>Prepared statements</strong> for all SQL queries (PDO)</span></li>
+                            <li><i class="fas fa-shield-alt"></i> <span><strong>XSS protection</strong> – output escaping with htmlspecialchars</span></li>
+                            <li><i class="fas fa-shield-alt"></i> <span><strong>CSRF tokens</strong> on all forms</span></li>
+                            <li><i class="fas fa-shield-alt"></i> <span><strong>File upload validation</strong> – mime type, size, and virus scan (ClamAV optional)</span></li>
+                            <li><i class="fas fa-shield-alt"></i> <span><strong>Session security</strong> – regeneration, HTTP-only cookies</span></li>
+                            <li><i class="fas fa-shield-alt"></i> <span><strong>Lazy loading</strong> images to improve initial page load</span></li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Screenshots Carousel (updated image names) -->
+                <div class="content-section carousel-section" data-aos="fade-up">
+                    <h3 class="carousel-title">Website Screenshots</h3>
+                    <p class="carousel-subtitle">Responsive design across mobile and desktop devices</p>
+                    
+                    <!-- Mobile Carousel -->
+                    <div class="mobile-carousel-wrapper">
+                        <div class="carousel-header">
+                            <h4><i class="fas fa-mobile-alt"></i> Mobile View</h4>
+                        </div>
+                        <div class="mobile-carousel-container">
+                            <div class="nav-btn mobile-prev-btn"><i class='bx bx-chevron-left'></i></div>
+                            
+                            <div class="phone-mockup">
+                                <div class="phone-notch"></div>
+                                <div class="mobile-screen">
+                                    <!-- Mobile screenshots (renamed for clickcollect) -->
+                                    <img src="../images/screenshots/clickcollect-home-mobile.jpeg" class="active" alt="Home mobile">
+                                    <img src="../images/screenshots/clickcollect-product-mobile.jpeg" alt="Product detail mobile">
+                                    <img src="../images/screenshots/clickcollect-submit-mobile.jpeg" alt="Submit form mobile">
+                                    <img src="../images/screenshots/clickcollect-search-mobile.jpeg" alt="Search results mobile">
+                                    <img src="../images/screenshots/clickcollect-category-mobile.jpeg" alt="Category view mobile">
+                                    <img src="../images/screenshots/clickcollect-contact-mobile.jpeg" alt="Contact page mobile">
+                                    <img src="../images/screenshots/clickcollect-admin-mobile.jpeg" alt="Admin dashboard mobile">
+                                    <img src="../images/screenshots/clickcollect-about-mobile.jpeg" alt="About page mobile">
+                                </div>
+                            </div>
+                            
+                            <div class="nav-btn mobile-next-btn"><i class='bx bx-chevron-right'></i></div>
+                        </div>
+                        
+                        <div class="carousel-indicators mobile-indicators">
+                            <div class="indicator active"></div>
+                            <div class="indicator"></div>
+                            <div class="indicator"></div>
+                            <div class="indicator"></div>
+                            <div class="indicator"></div>
+                            <div class="indicator"></div>
+                            <div class="indicator"></div>
+                            <div class="indicator"></div>
+                        </div>
+                    </div>
+                    
+                    <!-- Desktop Carousel -->
+                    <div class="desktop-carousel-wrapper">
+                        <div class="carousel-header">
+                            <h4><i class="fas fa-desktop"></i> Desktop View</h4>
+                        </div>
+                        <div class="desktop-carousel-container">
+                            <div class="nav-btn desktop-prev-btn"><i class='bx bx-chevron-left'></i></div>
+                            
+                            <div class="desktop-mockup">
+                                <div class="desktop-screen-topbar">
+                                    <div class="desktop-dot red"></div>
+                                    <div class="desktop-dot yellow"></div>
+                                    <div class="desktop-dot green"></div>
+                                </div>
+                                <div class="desktop-screen">
+                                    <img src="../images/screenshots/clickcollect-home-desktop.png" class="active" alt="Home desktop">
+                                    <img src="../images/screenshots/clickcollect-product-desktop.png" alt="Product detail desktop">
+                                    <img src="../images/screenshots/clickcollect-submit-desktop.png" alt="Submit form desktop">
+                                    <img src="../images/screenshots/clickcollect-search-desktop.png" alt="Search desktop">
+                                    <img src="../images/screenshots/clickcollect-category-desktop.png" alt="Category desktop">
+                                    <img src="../images/screenshots/clickcollect-contact-desktop.png" alt="Contact desktop">
+                                    <img src="../images/screenshots/clickcollect-admin-desktop.png" alt="Admin desktop">
+                                    <img src="../images/screenshots/clickcollect-about-desktop.png" alt="About desktop">
+                                </div>
+                            </div>
+                            
+                            <div class="nav-btn desktop-next-btn"><i class='bx bx-chevron-right'></i></div>
+                        </div>
+                        
+                        <div class="carousel-indicators desktop-indicators">
+                            <div class="indicator active"></div>
+                            <div class="indicator"></div>
+                            <div class="indicator"></div>
+                            <div class="indicator"></div>
+                            <div class="indicator"></div>
+                            <div class="indicator"></div>
+                            <div class="indicator"></div>
+                            <div class="indicator"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Live Website Links (matching clickcollect structure) -->
+                <div class="content-section" data-aos="fade-up">
+                    <h3>Live Website Pages</h3>
+                    <div class="live-links-grid">
+                        <a href="https://clickncollect.xo.je/clickcollect/public/" target="_blank" class="live-link">
+                            <i class="fas fa-home"></i> <span>Homepage</span>
+                        </a>
+                        <a href="https://clickncollect.xo.je/clickcollect/public/product.php?id=1" target="_blank" class="live-link">
+                            <i class="fas fa-tag"></i> <span>Product Page</span>
+                        </a>
+                        <a href="https://clickncollect.xo.je/clickcollect/public/submit.php" target="_blank" class="live-link">
+                            <i class="fas fa-upload"></i> <span>Submit Item</span>
+                        </a>
+                        <a href="https://clickncollect.xo.je/clickcollect/public/search.php" target="_blank" class="live-link">
+                            <i class="fas fa-search"></i> <span>Search</span>
+                        </a>
+                        <a href="https://clickncollect.xo.je/clickcollect/public/contact.php" target="_blank" class="live-link">
+                            <i class="fas fa-envelope"></i> <span>Contact</span>
+                        </a>
+                        <!-- Admin area (login protected) - we can still link but it's okay -->
+                        <a href="https://clickncollect.xo.je/clickcollect/admin/" target="_blank" class="live-link">
+                            <i class="fas fa-lock"></i> <span>Admin Login</span>
+                        </a>
+                        <a href="https://github.com/badar-92/click-collect/tree/main" target="_blank" class="live-link">
+                            <i class="fab fa-github"></i> <span>GitHub Repo</span>
+                        </a>
+                        <a href="#" class="live-link" style="opacity:0.7; pointer-events:none;">
+                            <i class="fas fa-image"></i> <span>Gallery (soon)</span>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Project Impact -->
+                <div class="content-section" data-aos="fade-up">
+                    <h3>Project Impact & Metrics</h3>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-top: 2rem;">
+                        <div class="impact-card">
+                            <div class="impact-number">200+</div>
+                            <div class="impact-text">Products listed within first 3 months</div>
+                        </div>
+                        <div class="impact-card">
+                            <div class="impact-number">1.2k</div>
+                            <div class="impact-text">Monthly active visitors</div>
+                        </div>
+                        <div class="impact-card">
+                            <div class="impact-number">15</div>
+                            <div class="impact-text">Product categories</div>
+                        </div>
+                        <div class="impact-card">
+                            <div class="impact-number">99%</div>
+                            <div class="impact-text">Uptime since launch</div>
+                        </div>
+                    </div>
+                    
+                    <p style="margin-top: 2rem;">
+                        Click & Collect has become a trusted local marketplace for students and residents, 
+                        reducing friction in peer‑to‑peer sales and providing a safe, moderated environment. 
+                        The admin panel empowers organizers to keep listings clean and up‑to‑date.
+                    </p>
+                </div>
+                
+                <!-- Project Links (main buttons) -->
+                <div class="content-section" data-aos="fade-up">
+                    <h3>Project Links</h3>
+                    <div class="project-links-row">
+                        <a href="https://clickncollect.xo.je/clickcollect/public/" target="_blank" class="btn btn-primary">
+                            <i class="fas fa-external-link-alt"></i> Visit Live Website
+                        </a>
+                        <a href="https://github.com/badar-92/click-collect/tree/main" target="_blank" class="btn btn-secondary">
+                            <i class="fab fa-github"></i> View Source Code
+                        </a>
+                        <a href="../index.html#projects" class="btn btn-outline">
+                            <i class="fas fa-arrow-left"></i> Back to Portfolio
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <p>&copy; <span id="currentYear"></span> | Badar Ahmad | All Rights Reserved | Click & Collect Project</p>
+                <p>Designed and developed by Badar Ahmad</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ===== BACK TO TOP ===== -->
+    <a href="#" class="back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+
+    <!-- ===== SCRIPTS ===== -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="../js/script.js"></script>
+    <script>
+        // Carousel JavaScript (identical to template, works with new image names)
+        document.addEventListener('DOMContentLoaded', function() {
+            if (typeof AOS !== 'undefined') {
+                AOS.init({ duration: 1000, once: true, offset: 100 });
+            }
+
+            class Carousel {
+                constructor(prefix) {
+                    this.prefix = prefix;
+                    this.screen = document.querySelector(`.${prefix}-screen`);
+                    this.images = this.screen ? this.screen.querySelectorAll('img') : [];
+                    this.indicators = document.querySelectorAll(`.${prefix}-indicators .indicator`);
+                    this.prevBtn = document.querySelector(`.${prefix}-prev-btn`);
+                    this.nextBtn = document.querySelector(`.${prefix}-next-btn`);
+                    
+                    this.currentIndex = 0;
+                    this.totalImages = this.images.length;
+                    this.autoRotateInterval = null;
+                    this.rotateDelay = 4000;
+                    
+                    if (this.totalImages > 0) {
+                        this.init();
+                    }
+                }
+                
+                init() {
+                    this.setupEventListeners();
+                    this.startAutoRotate();
+                    this.updateCarousel();
+                }
+                
+                setupEventListeners() {
+                    if (this.prevBtn) {
+                        this.prevBtn.addEventListener('click', () => { this.prevSlide(); this.resetAutoRotate(); });
+                    }
+                    if (this.nextBtn) {
+                        this.nextBtn.addEventListener('click', () => { this.nextSlide(); this.resetAutoRotate(); });
+                    }
+                    if (this.indicators.length > 0) {
+                        this.indicators.forEach((indicator, index) => {
+                            indicator.addEventListener('click', () => { this.goToSlide(index); this.resetAutoRotate(); });
+                        });
+                    }
+                    if (this.screen) {
+                        this.screen.addEventListener('mouseenter', () => this.pauseAutoRotate());
+                        this.screen.addEventListener('mouseleave', () => this.startAutoRotate());
+                    }
+                }
+                
+                updateCarousel() {
+                    this.images.forEach(img => img.classList.remove('active'));
+                    if (this.indicators.length > 0) {
+                        this.indicators.forEach(ind => ind.classList.remove('active'));
+                    }
+                    if (this.images[this.currentIndex]) {
+                        this.images[this.currentIndex].classList.add('active');
+                    }
+                    if (this.indicators[this.currentIndex]) {
+                        this.indicators[this.currentIndex].classList.add('active');
+                    }
+                }
+                
+                nextSlide() { this.currentIndex = (this.currentIndex + 1) % this.totalImages; this.updateCarousel(); }
+                prevSlide() { this.currentIndex = (this.currentIndex - 1 + this.totalImages) % this.totalImages; this.updateCarousel(); }
+                goToSlide(index) { this.currentIndex = index; this.updateCarousel(); }
+                startAutoRotate() { this.pauseAutoRotate(); this.autoRotateInterval = setInterval(() => this.nextSlide(), this.rotateDelay); }
+                pauseAutoRotate() { if (this.autoRotateInterval) { clearInterval(this.autoRotateInterval); this.autoRotateInterval = null; } }
+                resetAutoRotate() { this.pauseAutoRotate(); this.startAutoRotate(); }
+            }
+            
+            const mobileCarousel = new Carousel('mobile');
+            const desktopCarousel = new Carousel('desktop');
+            
+            // Touch swipe support
+            let touchStartX = 0, touchEndX = 0;
+            function handleTouchStart(e) { touchStartX = e.changedTouches[0].screenX; }
+            function handleTouchEnd(e) {
+                touchEndX = e.changedTouches[0].screenX;
+                const threshold = 50;
+                if (touchStartX - touchEndX > threshold) { mobileCarousel.nextSlide(); desktopCarousel.nextSlide(); }
+                if (touchEndX - touchStartX > threshold) { mobileCarousel.prevSlide(); desktopCarousel.prevSlide(); }
+                mobileCarousel.resetAutoRotate(); desktopCarousel.resetAutoRotate();
+            }
+            
+            const mobileScreen = document.querySelector('.mobile-screen');
+            const desktopScreen = document.querySelector('.desktop-screen');
+            if (mobileScreen) { mobileScreen.addEventListener('touchstart', handleTouchStart); mobileScreen.addEventListener('touchend', handleTouchEnd); }
+            if (desktopScreen) { desktopScreen.addEventListener('touchstart', handleTouchStart); desktopScreen.addEventListener('touchend', handleTouchEnd); }
+            
+            // Keyboard navigation
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'ArrowLeft') { mobileCarousel.prevSlide(); desktopCarousel.prevSlide(); mobileCarousel.resetAutoRotate(); desktopCarousel.resetAutoRotate(); }
+                if (e.key === 'ArrowRight') { mobileCarousel.nextSlide(); desktopCarousel.nextSlide(); mobileCarousel.resetAutoRotate(); desktopCarousel.resetAutoRotate(); }
+            });
+            
+            // Set current year
+            document.getElementById('currentYear').textContent = new Date().getFullYear();
+            
+            console.log('Click & Collect carousels initialized:', mobileCarousel.totalImages, 'mobile,', desktopCarousel.totalImages, 'desktop images');
+        });
+    </script>
+</body>
+</html>
